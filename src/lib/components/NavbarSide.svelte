@@ -1,9 +1,49 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
+
+	let githubEl = $state<HTMLAnchorElement | null>(null);
+	let linkedinEl = $state<HTMLAnchorElement | null>(null);
+	let xEl = $state<HTMLAnchorElement | null>(null);
+	let instagramEl = $state<HTMLAnchorElement | null>(null);
+	let blogEl = $state<HTMLAnchorElement | null>(null);
+
+	onMount(() => {
+		console.log('NavbarSide mounted');
+	});
+
+	function hoverIn(el: HTMLAnchorElement | null) {
+		if (!el) return;
+
+		gsap.to(el.querySelector('svg'), {
+			transform: 'scale(1.4)',
+			duration: 0.5,
+			ease: 'bounce.out'
+		});
+	}
+
+	function hoverOut(el: HTMLAnchorElement | null) {
+		if (!el) return;
+
+		gsap.to(el.querySelector('svg'), {
+			transform: 'scale(1)',
+			duration: 0.5,
+			ease: 'bounce.out'
+		});
+	}
+</script>
+
 <div class="fixed top-2/5 right-16 z-20 w-16 -translate-y-1/2">
 	<div
 		class="flex flex-col items-center justify-center gap-4 rounded-full border-2 border-midnight-400 p-4"
 	>
-		<div class="flex items-center justify-center">
-			<a href="https://github.com/yourusername" target="_blank"
+		<div>
+			<a
+				href="https://github.com/slimnate"
+				target="_blank"
+				onmouseenter={() => hoverIn(githubEl)}
+				onmouseleave={() => hoverOut(githubEl)}
+				bind:this={githubEl}
 				><svg
 					class="h-8 w-8 fill-midnight-500"
 					role="img"
@@ -15,8 +55,13 @@
 				></a
 			>
 		</div>
-		<div class="flex items-center justify-center">
-			<a href="https://linkedin.com/in/yourusername" target="_blank"
+		<div>
+			<a
+				href="https://linkedin.com/in/nathan-hoyt-kc"
+				target="_blank"
+				onmouseenter={() => hoverIn(linkedinEl)}
+				onmouseleave={() => hoverOut(linkedinEl)}
+				bind:this={linkedinEl}
 				><svg
 					class="h-8 w-8 fill-midnight-500"
 					role="img"
@@ -42,7 +87,12 @@
 			>
 		</div>
 		<div>
-			<a href="https://x.com/yourusername" target="_blank"
+			<a
+				href="https://x.com/nathanhoytdev"
+				target="_blank"
+				onmouseenter={() => hoverIn(xEl)}
+				onmouseleave={() => hoverOut(xEl)}
+				bind:this={xEl}
 				><svg
 					class="h-8 w-8 fill-midnight-500"
 					role="img"
@@ -55,7 +105,12 @@
 			>
 		</div>
 		<div>
-			<a href="https://instagram.com/yourusername" target="_blank"
+			<a
+				href=""
+				target="_blank"
+				onmouseenter={() => hoverIn(instagramEl)}
+				onmouseleave={() => hoverOut(instagramEl)}
+				bind:this={instagramEl}
 				><svg
 					class="h-8 w-8 fill-midnight-500"
 					role="img"
@@ -69,7 +124,12 @@
 			>
 		</div>
 		<div>
-			<a href="https://instagram.com/yourusername" target="_blank"
+			<a
+				href="https://slimnate.net"
+				target="_blank"
+				onmouseenter={() => hoverIn(blogEl)}
+				onmouseleave={() => hoverOut(blogEl)}
+				bind:this={blogEl}
 				><svg
 					class="h-8 w-8 fill-midnight-500"
 					xmlns="http://www.w3.org/2000/svg"
