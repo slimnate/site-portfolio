@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, setContext } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	let btn = $state<HTMLElement | null>(null);
 
@@ -61,7 +62,7 @@
 		}}
 		onclick={() => {
 			if (href) {
-				window.location.href = href;
+				goto(href);
 			} else if (onClick) {
 				onClick();
 			}

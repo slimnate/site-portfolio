@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, setContext } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	let btn = $state<HTMLElement | null>(null);
 	let btnSize = $state<{ width: number; height: number }>({ width: 0, height: 0 });
@@ -70,7 +71,7 @@
 		}}
 		onclick={() => {
 			if (href) {
-				window.location.href = href;
+				goto(href);
 			} else if (onClick) {
 				onClick();
 			}
