@@ -4,15 +4,17 @@
 
 	import ButtonGradientHover from '$lib/components/ButtonGradientHover.svelte';
 	import BounceText from '$lib/components/BounceText.svelte';
+	import StarBackground from '$lib/components/StarBackground.svelte';
 
 	let { children } = $props();
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<div class="flex min-h-screen min-w-full flex-col bg-midnight-800">
+<div class="flex min-h-screen min-w-full flex-col bg-[radial-gradient(ellipse_at_bottom,var(--color-midnight-700)_0%,var(--color-midnight-900)_100%)]">
+<StarBackground />
 	<!-- Header buttons -->
-	<div class="mx-auto w-full">
+	<div class="relative z-10 mx-auto w-full">
 		<div class="flex items-center justify-center p-12">
 			<ButtonGradientHover
 				classes="w-40 rounded-l-full border-2 border-r border-midnight-400 py-2 pr-2 pl-4 text-center text-xl group hover:border-midnight-200 transition-border-color duration-300"
@@ -33,7 +35,7 @@
 	</div>
 
 	<!-- Social media side buttons-->
-	<div class="fixed top-2/5 right-16 w-16 -translate-y-1/2">
+	<div class="fixed top-2/5 right-16 z-10 w-16 -translate-y-1/2">
 		<div
 			class="flex flex-col items-center justify-center gap-4 rounded-full border-2 border-midnight-400 p-4"
 		>
@@ -133,7 +135,7 @@
 	</div>
 
 	<!-- Main content -->
-	<main class="flex-1">
+	<main class="relative z-10 flex-1">
 		<div class="container mx-auto text-center">
 			{@render children()}
 		</div>
