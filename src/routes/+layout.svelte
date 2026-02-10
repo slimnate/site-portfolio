@@ -1,6 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import ButtonGradientHover from '$lib/components/ButtonGradientHover.svelte';
 
 	let { children } = $props();
 </script>
@@ -11,22 +12,29 @@
 	<!-- Header buttons -->
 	<div class="mx-auto w-full">
 		<div class="flex items-center justify-center p-12">
-			<a
+			<ButtonGradientHover
+				classes="w-40 rounded-l-full border-2 border-r border-midnight-400 py-2 pr-2 pl-4 text-center text-xl group hover:border-midnight-200 transition-border-color duration-300"
+				gradientColor="var(--color-midnight-500)"
 				href="/"
-				class="w-48 rounded-l-full border-2 border-r border-midnight-400 py-2 pr-2 pl-4 text-center text-xl"
 			>
-				<span class="">Portfolio</span>
-			</a>
-			<a
+				<span class="inline-block transition-all duration-300 group-hover:scale-[1.05]"
+					>Portfolio</span
+				>
+			</ButtonGradientHover>
+
+			<ButtonGradientHover
+				classes="w-40 rounded-r-full border-2 border-l border-midnight-400 py-2 pr-4 pl-2 text-center text-xl group hover:border-midnight-200 transition-border-color duration-300"
+				gradientColor="var(--color-midnight-500)"
 				href="/resume"
-				class="w-48 rounded-r-full border-2 border-l border-midnight-400 py-2 pr-4 pl-2 text-center text-xl"
-				>Resume</a
 			>
+				<span class="inline-block transition-all duration-300 group-hover:scale-[1.05]">Resumé</span
+				>
+			</ButtonGradientHover>
 		</div>
 	</div>
 
 	<!-- Social media side buttons-->
-	<div class="fixed top-1/2 right-16 w-16 -translate-y-1/2">
+	<div class="fixed top-2/5 right-16 w-16 -translate-y-1/2">
 		<div
 			class="flex flex-col items-center justify-center gap-4 rounded-full border-2 border-midnight-400 p-4"
 		>
