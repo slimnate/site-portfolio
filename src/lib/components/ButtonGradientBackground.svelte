@@ -1,11 +1,21 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 
 	let btn = $state<HTMLElement | null>(null);
 	let btnSize = $state<{ width: number; height: number }>({ width: 0, height: 0 });
 	let btnPosition = $state<{ x: number; y: number }>({ x: 0, y: 0 });
 	let mousePosition = $state<{ x: number; y: number }>({ x: 0, y: 0 });
 	let gradientPosition = $state<{ x: number; y: number }>({ x: 0, y: 0 });
+
+	let hoveredValue = $state(false);
+	setContext('hovered', {
+		get value() {
+			return hoveredValue;
+		},
+		set value(v: boolean) {
+			hoveredValue = v;
+		}
+	});
 
 	onMount(() => {
 		document.addEventListener('mousemove', (e: MouseEvent) => {
@@ -52,6 +62,12 @@
 		class="mouse-cursor-gradient-tracking {classes}"
 		style="--background-color: {background}; --gradient-color: {gradientColor}; --gradient-size: {gradientSize}; --gradient-duration: {gradientDuration}"
 		bind:this={btn}
+		onmouseenter={() => {
+			hoveredValue = true;
+		}}
+		onmouseleave={() => {
+			hoveredValue = false;
+		}}
 		onclick={() => {
 			if (href) {
 				window.location.href = href;

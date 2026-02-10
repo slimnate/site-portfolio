@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 
 	let btn = $state<HTMLElement | null>(null);
 
@@ -14,6 +14,16 @@
 					btn?.style.setProperty('--y', `${y}px`);
 				}
 			});
+		}
+	});
+
+	let hoveredValue = $state(false);
+	setContext('hovered', {
+		get value() {
+			return hoveredValue;
+		},
+		set value(v: boolean) {
+			hoveredValue = v;
 		}
 	});
 
@@ -43,6 +53,14 @@
 		class="mouse-cursor-gradient-tracking {classes}"
 		style="--background-color: {background}; --gradient-color: {gradientColor}; --gradient-size: {gradientSize}; --gradient-duration: {gradientDuration}"
 		bind:this={btn}
+		onmouseenter={() => {
+			hoveredValue = true;
+			console.log('mouseover from parent');
+		}}
+		onmouseleave={() => {
+			hoveredValue = false;
+			console.log('mouseout from parent');
+		}}
 		onclick={() => {
 			if (href) {
 				window.location.href = href;

@@ -1,7 +1,9 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+
 	import ButtonGradientHover from '$lib/components/ButtonGradientHover.svelte';
+	import BounceText from '$lib/components/BounceText.svelte';
 
 	let { children } = $props();
 </script>
@@ -17,9 +19,7 @@
 				gradientColor="var(--color-midnight-500)"
 				href="/"
 			>
-				<span class="inline-block transition-all duration-300 group-hover:scale-[1.05]"
-					>Portfolio</span
-				>
+				<BounceText>Portfolio</BounceText>
 			</ButtonGradientHover>
 
 			<ButtonGradientHover
@@ -27,8 +27,7 @@
 				gradientColor="var(--color-midnight-500)"
 				href="/resume"
 			>
-				<span class="inline-block transition-all duration-300 group-hover:scale-[1.05]">Resumé</span
-				>
+				<BounceText>Resumé</BounceText>
 			</ButtonGradientHover>
 		</div>
 	</div>
