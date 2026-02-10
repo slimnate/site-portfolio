@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	/* Midnight Colors - https://coolors.co/palette/10002b-240046-3c096c-5a189a-7b2cbf-9d4edd-c77dff-e0aaff */
+	--color-midnight-100: #e0aaff;
+	--color-midnight-200: #c77dff;
+	--color-midnight-300: #9d4edd;
+	--color-midnight-400: #7b2cbf;
+	--color-midnight-500: #5a189a;
+	--color-midnight-600: #3c096c;
+	--color-midnight-700: #240046;
+	--color-midnight-800: #10002b;
+	--color-midnight-900: #070013;
+
+	--color-alice-blue: #f2f7ff;
+
+	--color-ghost-white: #fbfaff;
+}
+
+* {
+	--font-sans: 'Inter', sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+	@apply font-mono;
+
+	@apply text-ghost-white;
+}
