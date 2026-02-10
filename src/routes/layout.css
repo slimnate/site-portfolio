@@ -17,6 +17,8 @@
 	--color-alice-blue: #f2f7ff;
 
 	--color-ghost-white: #fbfaff;
+
+	--color-platinum: #f2f3f4;
 }
 
 * {
@@ -25,4 +27,8 @@
 	@apply font-mono;
 
 	@apply text-ghost-white;
+
+	a {
+		@apply text-midnight-500 hover:underline;
+	}
 }

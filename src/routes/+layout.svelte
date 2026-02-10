@@ -22,9 +22,5 @@
 	<NavbarSide />
 
 	<!-- Main content -->
-	<main class="relative z-10 flex-1">
-		<div class="container mx-auto text-center">
-			{@render children()}
-		</div>
-	</main>
+	{@render children()}
 </div>
