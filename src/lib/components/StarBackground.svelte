@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { gsap } from 'gsap';
+
 	function generateBoxShadows(n: number): string {
 		const shadows: string[] = [];
 		for (let i = 0; i < n; i++) {
@@ -12,12 +15,41 @@
 	const shadowsSmall = generateBoxShadows(700);
 	const shadowsMedium = generateBoxShadows(200);
 	const shadowsBig = generateBoxShadows(100);
+
+	let starsSmallEl = $state<HTMLDivElement | null>(null);
+	let starsMediumEl = $state<HTMLDivElement | null>(null);
+	let starsLargeEl = $state<HTMLDivElement | null>(null);
+
+	let mousePositionX = $state(0);
+
+	onMount(() => {
+		window.addEventListener('mousemove', (event) => {
+			mousePositionX = event.clientX;
+		});
+	});
+
+	$effect(() => {
+		const offsetX = (mousePositionX - window.innerWidth / 2) * 0.03;
+		if (starsSmallEl) {
+			starsSmallEl.style.translate = `${offsetX * 1.5}px`;
+		}
+		if (starsMediumEl) {
+			starsMediumEl.style.translate = `${offsetX}px`;
+		}
+		if (starsLargeEl) {
+			starsLargeEl.style.translate = `${offsetX * 0.5}px`;
+		}
+	});
 </script>
 
 <div class="stars-container">
-	<div class="stars stars-small" style:--star-shadows={shadowsSmall}></div>
-	<div class="stars stars-medium" style:--star-shadows={shadowsMedium}></div>
-	<div class="stars stars-large" style:--star-shadows={shadowsBig}></div>
+	<div class="stars stars-small" style:--star-shadows={shadowsSmall} bind:this={starsSmallEl}></div>
+	<div
+		class="stars stars-medium"
+		style:--star-shadows={shadowsMedium}
+		bind:this={starsMediumEl}
+	></div>
+	<div class="stars stars-large" style:--star-shadows={shadowsBig} bind:this={starsLargeEl}></div>
 </div>
 
 <style>
