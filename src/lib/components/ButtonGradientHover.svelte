@@ -55,11 +55,9 @@
 		bind:this={btn}
 		onmouseenter={() => {
 			hoveredValue = true;
-			console.log('mouseover from parent');
 		}}
 		onmouseleave={() => {
 			hoveredValue = false;
-			console.log('mouseout from parent');
 		}}
 		onclick={() => {
 			if (href) {
