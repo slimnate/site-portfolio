@@ -4,6 +4,17 @@
 	import { SplitText } from 'gsap/SplitText';
 	import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
 
+	import SkillSection from '$lib/components/SkillSection.svelte';
+	import {
+		languageSkills,
+		frameworkSkills,
+		backendSkills,
+		cloudSkills,
+		devOpsSkills,
+		toolsSkills,
+		systemsSkills
+	} from '$lib/data/skills';
+
 	gsap.registerPlugin(ScrambleTextPlugin);
 
 	let nameEl = $state<HTMLHeadingElement | null>(null);
@@ -13,7 +24,7 @@
 
 	const fullStackDeveloperText = 'Full-Stack Developer';
 	const svelteKitText = 'SvelteKit Specialist';
-	const spotliteStudiosText = 'Founder of Spotlite Studios';
+	const spotliteStudiosText = 'Founder - Spotlite Studios';
 
 	function nameScramble() {
 		gsap.to(nameEl, {
@@ -49,8 +60,6 @@
 		let timeline = gsap.timeline({
 			delay: 2
 		});
-
-		console.log(fullStackEl);
 
 		fullStackEl!.textContent = fullStackDeveloperText;
 		svelteKitEl!.textContent = svelteKitText;
@@ -101,8 +110,8 @@
 	});
 </script>
 
-<div class="mx-auto flex h-full max-w-screen-lg flex-col justify-center px-16">
-	<h1 class="text-6xl font-bold" bind:this={nameEl}>Nathan Hoyt</h1>
+<main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-16">
+	<h1 class="text-6xl font-bold text-midnight-400" bind:this={nameEl}>Nathan Hoyt</h1>
 
 	<div class="relative h-24">
 		<div
@@ -119,12 +128,41 @@
 		></div>
 	</div>
 
-	<a href="https://spotlitestudios.com" class="text-midnight-500 hover:underline" target="_blank"
-		>Spotlite Studios</a
-	>
-
 	<p class="text-lg">
 		I'm a software engineer with a passion for building web applications that are both functional
-		and beautiful.
+		and beautiful. I'm the founder of <a
+			href="https://spotlitestudios.com"
+			class="text-midnight-500 hover:underline"
+			target="_blank">Spotlite Studios</a
+		>, specializing in SvelteKit, TailwindCSS, and Typescript.
 	</p>
-</div>
+
+	<!-- <p class="text-lg">
+		I'm a software engineer with a passion for building web applications that are both functional
+		and beautiful. I'm the founder of Spotlite Studios, a web development agency helping Kansas City
+		small businesses establish and grow a strong online presence. I specialize in SvelteKit,
+		TailwindCSS, and Typescript, but have experience in many other technologies.
+	</p> -->
+
+	<p class="text-lg">Scroll down to learn more about me and my work!</p>
+
+	<h2 class="mt-24 text-center text-4xl font-bold text-midnight-400">My Skills</h2>
+
+	<SkillSection title="Languages" skills={languageSkills} />
+
+	<SkillSection title="Frameworks & Libraries" skills={frameworkSkills} />
+
+	<SkillSection title="Backend & Databases" skills={backendSkills} />
+
+	<SkillSection title="Cloud & Hosting" skills={cloudSkills} />
+
+	<SkillSection title="Build & DevOps" skills={devOpsSkills} />
+
+	<SkillSection title="Development Tools" skills={toolsSkills} />
+
+	<SkillSection title="Systems" skills={systemsSkills} />
+
+	<h2 class="text-4xl font-bold text-midnight-400">My Projects</h2>
+	<h2 class="text-4xl font-bold text-midnight-400">Quick Stats</h2>
+	<h2 class="text-4xl font-bold text-midnight-400">Let's Connect</h2>
+</main>

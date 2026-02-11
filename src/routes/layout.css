@@ -26,9 +26,31 @@
 	--font-mono: 'JetBrains Mono', monospace;
 	@apply font-mono;
 
-	@apply text-ghost-white;
-
 	a {
 		@apply text-midnight-500 hover:underline;
 	}
+}
+
+body {
+	color: var(--color-ghost-white);
+}
+
+p {
+	margin-top: 1rem;
+}
+
+h1 {
+	margin-top: 2rem;
+}
+
+h2 {
+	margin-top: 1.5rem;
+}
+
+h3 {
+	margin-top: 1rem;
+}
+
+h4 {
+	margin-top: 0.5rem;
 }
