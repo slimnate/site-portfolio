@@ -19,7 +19,7 @@
 
 	function nameScramble() {
 		gsap.to(nameEl, {
-			duration: 2,
+			duration: 1,
 			scrambleText: 'Nathan Hoyt'
 		});
 	}
@@ -44,14 +44,8 @@
 		);
 	}
 
-	onMount(() => {
-		// nameFlyIn();
-		nameScramble();
-
-		let timeline = gsap.timeline({
-			delay: 2
-		});
-
+	function headerCycle() {
+		// Set text content of headers after first render so they don't show up for a split second on first load.
 		fullStackEl!.textContent = fullStackDeveloperText;
 		svelteKitEl!.textContent = svelteKitText;
 		spotliteStudiosEl!.textContent = spotliteStudiosText;
@@ -60,44 +54,41 @@
 		let splitSvelteKitText = SplitText.create(svelteKitEl, { type: 'chars' });
 		let splitSpotliteStudiosText = SplitText.create(spotliteStudiosEl, { type: 'chars' });
 
-		timeline.from(splitFullStackDeveloperText.chars, {
-			opacity: 0,
-			duration: 1,
-			stagger: 0.015
-		});
-		timeline.to(splitFullStackDeveloperText.chars, {
-			opacity: 0,
-			duration: 1,
-			stagger: 0.015,
+		let timeline = gsap.timeline({
 			delay: 1
 		});
 
-		timeline.from(splitSvelteKitText.chars, {
+		const fromOptions = {
 			opacity: 0,
 			duration: 1,
 			stagger: 0.015
-		});
-		timeline.to(splitSvelteKitText.chars, {
-			opacity: 0,
-			duration: 1,
-			stagger: 0.015,
-			delay: 1
-		});
+		};
 
-		timeline.from(splitSpotliteStudiosText.chars, {
-			opacity: 0,
-			duration: 1,
-			stagger: 0.015
-		});
-		timeline.to(splitSpotliteStudiosText.chars, {
+		const toOptions = {
 			opacity: 0,
 			duration: 1,
 			stagger: 0.015,
 			delay: 1
-		});
+		};
+
+		timeline.from(splitFullStackDeveloperText.chars, fromOptions);
+		timeline.to(splitFullStackDeveloperText.chars, toOptions);
+
+		timeline.from(splitSvelteKitText.chars, fromOptions);
+		timeline.to(splitSvelteKitText.chars, toOptions);
+
+		timeline.from(splitSpotliteStudiosText.chars, fromOptions);
+		timeline.to(splitSpotliteStudiosText.chars, toOptions);
 
 		timeline.repeat(-1);
 		timeline.play();
+	}
+
+	onMount(() => {
+		// nameFlyIn();
+		nameScramble();
+
+		headerCycle();
 	});
 </script>
 
