@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	let {
+		electronCount = 40,
+		nucleusFill = 'red',
+		electronFill = 'blue',
+		orbitalStroke = 'white'
+	} = $props();
+
 	// Orbital constants
 	const ORBITAL_MAX_ELECTRONS = new Map<number, number>([
 		[1, 2],
@@ -9,11 +16,31 @@
 		[4, 32]
 	]);
 
-	const ORBITAL_RADII = new Map<number, number>([
+	const ORBITAL_RADII_4_ORBITALS = new Map<number, number>([
 		[1, 25],
 		[2, 40],
 		[3, 55],
 		[4, 70]
+	]);
+
+	const ORBITAL_RADII_3_ORBITALS = new Map<number, number>([
+		[1, 25],
+		[2, 40],
+		[3, 55]
+	]);
+
+	const ORBITAL_RADII_2_ORBITALS = new Map<number, number>([
+		[1, 25],
+		[2, 50]
+	]);
+
+	const ORBITAL_RADII_1_ORBITAL = new Map<number, number>([[1, 50]]);
+
+	const ORBITAL_RADII = new Map<number, Map<number, number>>([
+		[4, ORBITAL_RADII_4_ORBITALS],
+		[3, ORBITAL_RADII_3_ORBITALS],
+		[2, ORBITAL_RADII_2_ORBITALS],
+		[1, ORBITAL_RADII_1_ORBITAL]
 	]);
 
 	/**
@@ -103,7 +130,7 @@
 
 		// Generate each orbital based on the remaining electrons
 		for (let orbitalNumber = 1; orbitalNumber <= 4; orbitalNumber++) {
-			const radius = ORBITAL_RADII.get(orbitalNumber) ?? 0;
+			const radius = ORBITAL_RADII.get(orbitalCount)?.get(orbitalNumber) ?? 0;
 			const orbitalElectronCount = Math.min(
 				remainingElectrons,
 				ORBITAL_MAX_ELECTRONS.get(orbitalNumber) ?? 0
@@ -115,27 +142,27 @@
 				break;
 			}
 		}
-
-		// Rotate the electrons every 50ms
-		// setInterval(() => {
-		// 	orbitals.forEach((orbital) => {
-		// 		orbital.electrons.forEach((electron) => {
-		// 			electron.rotation += 2;
-		// 		});
-		// 	});
-		// }, 50);
 	});
 
-	let {
-		electronCount = 16,
-		nucleusFill = 'red',
-		electronFill = 'blue',
-		orbitalStroke = 'white'
-	} = $props();
+	let orbitalCount = $derived(calculateOrbitalCount(electronCount));
+	function calculateOrbitalCount(electronCount: number) {
+		let remainingElectrons = electronCount;
+		let orbitalCount = 1;
+		ORBITAL_MAX_ELECTRONS.forEach((maxElectrons, orbitalNumber) => {
+			if (remainingElectrons <= maxElectrons) {
+				return orbitalNumber;
+			}
+			remainingElectrons = remainingElectrons - maxElectrons;
+			orbitalCount++;
+		});
+		return orbitalCount;
+	}
 </script>
 
 <div>
+	Orbitals: {orbitalCount}
 	<svg
+		style="outline: 1px solid red; margin-left: 100px;"
 		width="200"
 		height="200"
 		viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
