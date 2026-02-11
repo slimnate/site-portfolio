@@ -44,12 +44,6 @@
 	let { children, classes = '' }: { children: any; classes?: string } = $props();
 </script>
 
-<span class="bounce-text {classes}" role="button" tabindex="0" bind:this={spanEl}>
+<span class="bounce-text {classes}" bind:this={spanEl}>
 	{@render children()}
 </span>
-
-<style>
-	.bounce-text {
-		animation: bounce 1s infinite;
-	}
-</style>

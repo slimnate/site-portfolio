@@ -4,6 +4,8 @@
 	import { SplitText } from 'gsap/SplitText';
 	import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
 
+	import BounceLink from '$lib/components/BounceLink.svelte';
+
 	import SkillSection from '$lib/components/SkillSection.svelte';
 	import {
 		languageSkills,
@@ -111,7 +113,12 @@
 </script>
 
 <main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-16">
-	<h1 class="text-6xl font-bold text-midnight-400" bind:this={nameEl}>Nathan Hoyt</h1>
+	<h1
+		class="text-6xl font-bold text-midnight-500 drop-shadow-md drop-shadow-midnight-900"
+		bind:this={nameEl}
+	>
+		Nathan Hoyt
+	</h1>
 
 	<div class="relative h-24">
 		<div
@@ -130,11 +137,9 @@
 
 	<p class="text-lg">
 		I'm a software engineer with a passion for building web applications that are both functional
-		and beautiful. I'm the founder of <a
-			href="https://spotlitestudios.com"
-			class="text-midnight-500 hover:underline"
-			target="_blank">Spotlite Studios</a
-		>, specializing in SvelteKit, TailwindCSS, and Typescript.
+		and beautiful. I'm the founder of <BounceLink href="https://spotlitestudios.com"
+			>Spotlite Studios</BounceLink
+		>, specializing in SvelteKit, Tailwind, Node, and TypeScript.
 	</p>
 
 	<!-- <p class="text-lg">
@@ -146,23 +151,39 @@
 
 	<p class="text-lg">Scroll down to learn more about me and my work!</p>
 
-	<h2 class="mt-24 text-center text-4xl font-bold text-midnight-400">My Skills</h2>
+	<!-- Skills -->
+	<h2
+		class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
+	>
+		My Skills
+	</h2>
 
 	<SkillSection title="Languages" skills={languageSkills} />
-
 	<SkillSection title="Frameworks & Libraries" skills={frameworkSkills} />
-
 	<SkillSection title="Backend & Databases" skills={backendSkills} />
-
 	<SkillSection title="Cloud & Hosting" skills={cloudSkills} />
-
 	<SkillSection title="Build & DevOps" skills={devOpsSkills} />
-
 	<SkillSection title="Development Tools" skills={toolsSkills} />
-
 	<SkillSection title="Systems" skills={systemsSkills} />
 
-	<h2 class="text-4xl font-bold text-midnight-400">My Projects</h2>
-	<h2 class="text-4xl font-bold text-midnight-400">Quick Stats</h2>
-	<h2 class="text-4xl font-bold text-midnight-400">Let's Connect</h2>
+	<!-- Projects -->
+	<h2
+		class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
+	>
+		My Projects
+	</h2>
+
+	<!-- Quick Stats -->
+	<h2
+		class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
+	>
+		Quick Stats
+	</h2>
+
+	<!-- Let's Connect -->
+	<h2
+		class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
+	>
+		Let's Connect
+	</h2>
 </main>
