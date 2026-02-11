@@ -1,19 +1,10 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
-
 	import SkillSection from '$lib/components/SkillSection.svelte';
-	import {
-		languageSkills,
-		frameworkSkills,
-		backendSkills,
-		cloudSkills,
-		devOpsSkills,
-		toolsSkills,
-		systemsSkills
-	} from '$lib/data/skills';
+	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
 </script>
 
-<main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-16">
+<main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-16 pr-24">
 	<Hero />
 
 	<!-- <p class="text-lg">
@@ -23,29 +14,10 @@
 		TailwindCSS, and Typescript, but have experience in many other technologies.
 	</p> -->
 
-	<p class="text-lg">Scroll down to learn more about me and my work!</p>
-
-	<!-- Skills -->
-	<h2
-		class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
-	>
-		My Skills
-	</h2>
-
-	<SkillSection title="Languages" skills={languageSkills} />
-	<SkillSection title="Frameworks & Libraries" skills={frameworkSkills} />
-	<SkillSection title="Backend & Databases" skills={backendSkills} />
-	<SkillSection title="Cloud & Hosting" skills={cloudSkills} />
-	<SkillSection title="Build & DevOps" skills={devOpsSkills} />
-	<SkillSection title="Development Tools" skills={toolsSkills} />
-	<SkillSection title="Systems" skills={systemsSkills} />
+	<SkillSection />
 
 	<!-- Projects -->
-	<h2
-		class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
-	>
-		My Projects
-	</h2>
+	<ProjectsSection />
 
 	<!-- Quick Stats -->
 	<h2

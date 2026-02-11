@@ -1,27 +1,27 @@
-<script lang="ts">
-	import SkillIcon from '$lib/components/SkillIcon.svelte';
-	import type { SkillIconProps } from '$lib/components/SkillIcon.types';
-
-	type SkillSectionProps = {
-		title: string;
-		skills: SkillIconProps[];
-	};
-
-	let { title, skills = [] }: SkillSectionProps = $props();
+<script>
+	import SkillCard from '$lib/components/SkillCard.svelte';
+	import {
+		languageSkills,
+		frameworkSkills,
+		backendSkills,
+		cloudSkills,
+		devOpsSkills,
+		toolsSkills,
+		systemsSkills
+	} from '$lib/data/skills';
 </script>
 
-<div
-	class="relative mt-8 flex items-center justify-evenly gap-2 rounded-3xl border-2 border-platinum border-t-transparent bg-midnight-500 p-4 pt-8"
+<!-- Skills -->
+<h2
+	class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
 >
-	<div
-		class="absolute -top-4 left-8 text-center text-3xl font-bold text-platinum drop-shadow-xl drop-shadow-midnight-900"
-	>
-		{title}
-	</div>
+	My Skills
+</h2>
 
-	<div class="flex max-w-lg flex-wrap items-center justify-center gap-2">
-		{#each skills as skill}
-			<SkillIcon {...skill} />
-		{/each}
-	</div>
-</div>
+<SkillCard title="Languages" skills={languageSkills} />
+<SkillCard title="Frameworks & Libraries" skills={frameworkSkills} />
+<SkillCard title="Backend & Databases" skills={backendSkills} />
+<SkillCard title="Cloud & Hosting" skills={cloudSkills} />
+<SkillCard title="Build & DevOps" skills={devOpsSkills} />
+<SkillCard title="Development Tools" skills={toolsSkills} />
+<SkillCard title="Systems" skills={systemsSkills} />
