@@ -122,20 +122,20 @@
 
 	<div class="relative h-24">
 		<div
-			class="opactity-0 absolute my-6 text-3xl font-bold text-platinum"
+			class="opactity-0 absolute my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
 			bind:this={fullStackEl}
 		></div>
 		<div
-			class="opactity-0 absolute my-6 text-3xl font-bold text-platinum"
+			class="opactity-0 absolute my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
 			bind:this={svelteKitEl}
 		></div>
 		<div
-			class="opactity-0 my-6 text-3xl font-bold text-platinum"
+			class="opactity-0 my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
 			bind:this={spotliteStudiosEl}
 		></div>
 	</div>
 
-	<p class="text-lg">
+	<p class="text-lg drop-shadow-md drop-shadow-midnight-900">
 		I'm a software engineer with a passion for building web applications that are both functional
 		and beautiful. I'm the founder of <BounceLink href="https://spotlitestudios.com"
 			>Spotlite Studios</BounceLink
