@@ -5,7 +5,8 @@
 		electronCount = 40,
 		nucleusFill = 'red',
 		electronFill = 'blue',
-		orbitalStroke = 'white'
+		orbitalStroke = 'white',
+		syncOrbit = false
 	} = $props();
 
 	// Orbital constants
@@ -45,6 +46,7 @@
 
 	/**
 	 * Orbital class
+	 * @param orbitalNumber - The number of the orbital (1-4)
 	 * @param radius - The radius of the orbital
 	 * @param electronCount - The number of electrons in the orbital
 	 * @param centerX - The x coordinate of the center of the orbital
@@ -54,8 +56,6 @@
 	class Orbital {
 		public electrons: Electron[];
 		private orbitalNumber: number;
-		private centerX: number;
-		private centerY: number;
 		private radius: number;
 
 		constructor(
@@ -67,8 +67,6 @@
 		) {
 			this.electrons = [];
 			this.orbitalNumber = orbitalNumber;
-			this.centerX = centerX;
-			this.centerY = centerY;
 			this.radius = radius;
 
 			const electronDistributionAngle = 360 / electronCount;
@@ -89,14 +87,6 @@
 
 		public getOrbitalNumber() {
 			return this.orbitalNumber;
-		}
-
-		public getCenterX() {
-			return this.centerX;
-		}
-
-		public getCenterY() {
-			return this.centerY;
 		}
 
 		public getRadius() {
@@ -160,9 +150,7 @@
 </script>
 
 <div>
-	Orbitals: {orbitalCount}
 	<svg
-		style="outline: 1px solid red; margin-left: 100px;"
 		width="200"
 		height="200"
 		viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
@@ -174,8 +162,8 @@
 
 		{#each orbitals as orbital}
 			<circle
-				cx={orbital.getCenterX()}
-				cy={orbital.getCenterY()}
+				cx={centerX}
+				cy={centerY}
 				r={orbital.getRadius()}
 				stroke={orbitalStroke}
 				stroke-width="2"
@@ -188,7 +176,7 @@
 					cy={electron.y}
 					r="5"
 					fill={electronFill}
-					class="electron-orbit-{orbital.getOrbitalNumber()}"
+					class="electron-orbit-{syncOrbit ? 'sync' : orbital.getOrbitalNumber()}"
 					style="transform-origin: {centerX}px {centerY}px;"
 				/>
 			{/each}
@@ -197,6 +185,10 @@
 </div>
 
 <style lang="scss">
+	.electron-orbit-sync {
+		animation: electron-orbit 10s linear infinite;
+	}
+
 	.electron-orbit-1 {
 		animation: electron-orbit 5s linear infinite;
 	}
@@ -209,6 +201,7 @@
 	.electron-orbit-4 {
 		animation: electron-orbit 20s linear infinite;
 	}
+
 	:global {
 		@keyframes electron-orbit {
 			from {
