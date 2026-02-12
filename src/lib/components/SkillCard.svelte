@@ -11,17 +11,17 @@
 </script>
 
 <div
-	class="relative mt-8 flex items-center justify-evenly gap-2 rounded-3xl border-2 border-platinum border-t-transparent bg-midnight-500 p-4 pt-8"
+	class="group relative mt-8 flex items-center justify-evenly gap-2 rounded-3xl border-2 border-platinum bg-midnight-500 p-8 pt-8 transition-all duration-500 hover:border-t-transparent"
 >
 	<div
-		class="absolute -top-4 left-8 text-center text-3xl font-bold text-platinum drop-shadow-xl drop-shadow-midnight-900"
+		class="absolute top-3 left-8 text-center text-3xl font-bold text-platinum drop-shadow-xl drop-shadow-midnight-900 transition-all duration-500 group-hover:-top-4"
 	>
 		{title}
 	</div>
 
-	<div class="flex max-w-lg flex-wrap items-center justify-center gap-2">
+	<div class="flex flex-wrap items-center justify-center gap-2 pt-8">
 		{#each skills as skill}
-			<SkillIcon {...skill} />
+			<SkillIcon {...skill} classes="w-16" />
 		{/each}
 	</div>
 </div>

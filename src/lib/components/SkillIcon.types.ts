@@ -5,6 +5,7 @@ type SkillIconProps = {
 	imageUrl?: string;
 	size?: number;
 	style?: string;
+	classes?: string;
 	startColor?: string;
 	endColor?: string;
 	name?: string;

@@ -6,6 +6,7 @@
 		level = 5,
 		imageUrl,
 		size,
+		classes,
 		style,
 		startColor,
 		endColor,
@@ -52,4 +53,4 @@
 	const titleText = `${name ? name : skill} - ${levelToString(level)}`;
 </script>
 
-<img src={url.toString()} alt={titleText} title={titleText} class="w-16" />
+<img src={url.toString()} alt={titleText} title={titleText} class={classes} />
