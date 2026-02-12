@@ -1,10 +1,22 @@
 <script lang="ts">
-	let { src, alt }: { src: string; alt: string } = $props();
+	let {
+		src,
+		alt,
+		contentClasses,
+		bezelClasses,
+		containerClasses
+	}: {
+		src: string;
+		alt: string;
+		contentClasses?: string;
+		bezelClasses?: string;
+		containerClasses?: string;
+	} = $props();
 </script>
 
-<div class="monitor-frame">
-	<img src="/img/monitor.svg" alt="" class="monitor-bezel" aria-hidden="true" />
-	<img {src} {alt} class="monitor-screen-content" />
+<div class="monitor-frame {containerClasses}">
+	<img src="/img/monitor.svg" alt="" class="monitor-bezel {bezelClasses}" aria-hidden="true" />
+	<img {src} {alt} class="monitor-screen-content {contentClasses}" />
 </div>
 
 <style>
