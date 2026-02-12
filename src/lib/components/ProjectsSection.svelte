@@ -1,4 +1,6 @@
 <script lang="ts">
+	import MonitorFramedImage from './MonitorFramedImage.svelte';
+
 	/**
 	 * Spotlite Studios
 	 * Renvintory
@@ -96,16 +98,9 @@
 			>
 				{project.name}
 			</div>
-			<div
-				class="w-full rounded-md border-4 border-midnight-700 bg-platinum shadow-lg shadow-midnight-900"
-			>
-				<img src={project.image} alt={project.name} class="" />
-			</div>
+			<MonitorFramedImage src={project.image} alt={project.name} />
 			<p>{project.description}</p>
 			<a href={project.url} target="_blank">View Project</a>
 		</div>
 	{/each}
 </div>
-
-<style>
-</style>
