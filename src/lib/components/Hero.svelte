@@ -117,9 +117,9 @@
 
 	<p class="text-lg drop-shadow-md drop-shadow-midnight-900">
 		I'm a software engineer with a passion for building web applications that are both functional
-		and beautiful. I specialize in in SvelteKit, Tailwind, Node, and TypeScript, and am the founder
-		of <BounceLink href="https://spotlitestudios.com" classes="whitespace-nowrap"
-			>Spotlite Studios</BounceLink
+		and beautiful. I specialize in SvelteKit, Tailwind, Node, and TypeScript, and am the founder of <BounceLink
+			href="https://spotlitestudios.com"
+			classes="whitespace-nowrap">Spotlite Studios</BounceLink
 		>
 	</p>
 </div>

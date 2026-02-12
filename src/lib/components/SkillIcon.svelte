@@ -85,7 +85,7 @@
 		}
 
 		gsap.to(iconEl, {
-			y: 0,
+			y: -2 - levelFactor * 0.8,
 			scale: 1,
 			rotateZ: 0,
 			duration: 0.28,
@@ -120,21 +120,42 @@
 	});
 </script>
 
-<img
-	bind:this={iconEl}
-	src={progressUrl}
-	alt={titleText}
-	title={titleText}
-	class={`${classes ? classes : 'w-16'} skill-icon-clean`}
+<div
+	class="skill-icon-container relative"
 	onmouseenter={handleEnter}
 	onmouseleave={handleLeave}
-/>
+	aria-label={titleText}
+	role="img"
+>
+	<img
+		bind:this={iconEl}
+		src={progressUrl}
+		alt={titleText}
+		title={titleText}
+		class={`${classes ? classes : 'w-16'} skill-icon-clean`}
+	/>
+</div>
 
 <style>
 	.skill-icon-clean {
 		transition: filter 180ms ease;
 		will-change: transform, filter;
-		filter: drop-shadow(0 0 0.3rem rgb(224 170 255 / 0.35));
+	}
+
+	.skill-icon-container::after {
+		content: '';
+		position: absolute;
+		/* background-color: red; */
+		width: 100%;
+		height: 20%;
+		top: 100%;
+		left: 0;
+		background: radial-gradient(ellipse at center, black 0%, transparent 70%);
+	}
+
+	.skill-icon-container:hover::after {
+		transform: scale(1.2);
+		transition: transform 180ms ease;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
