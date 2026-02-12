@@ -68,13 +68,13 @@
 			image: '/img/workos-convex-sveltekit-1280x720.png'
 		},
 		{
-			name: 'keeper',
+			name: 'Keeper',
 			description: 'An image culling tool built with React and Electron.',
 			url: 'https://github.com/slimnate/keeper',
 			image: '/img/keeper-1280x720.png'
 		},
 		{
-			name: 'This developer portfolio',
+			name: 'This Portfolio',
 			description: 'A portfolio website for a software engineer.',
 			url: 'https://github.com/slimnate/site-portfolio',
 			image: '/img/portfolio-1280x720.png'
@@ -88,13 +88,13 @@
 	My Projects
 </h2>
 
-<div class="grid grid-cols-2 gap-4 pt-8">
+<div class="grid gap-4 pt-8 lg:grid-cols-2">
 	{#each projects as project}
 		<div
 			class="relative mt-8 flex flex-col items-center justify-evenly gap-2 rounded-3xl border-2 border-platinum border-t-transparent bg-midnight-500 p-4 pt-8"
 		>
 			<div
-				class="absolute -top-4 left-8 text-center text-3xl font-bold text-platinum drop-shadow-xl drop-shadow-midnight-900"
+				class="absolute -top-4 left-8 text-left text-2xl font-bold text-platinum drop-shadow-xl drop-shadow-midnight-900"
 			>
 				{project.name}
 			</div>

@@ -4,7 +4,7 @@
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
 </script>
 
-<main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-12 md:px-32">
+<main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-12 lg:px-32">
 	<div class="pr-8">
 		<Hero />
 
