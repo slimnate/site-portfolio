@@ -50,9 +50,9 @@
 		svelteKitEl!.textContent = svelteKitText;
 		spotliteStudiosEl!.textContent = spotliteStudiosText;
 
-		let splitFullStackDeveloperText = SplitText.create(fullStackEl, { type: 'chars' });
-		let splitSvelteKitText = SplitText.create(svelteKitEl, { type: 'chars' });
-		let splitSpotliteStudiosText = SplitText.create(spotliteStudiosEl, { type: 'chars' });
+		let splitFullStackDeveloperText = SplitText.create(fullStackEl, { type: 'chars, words' });
+		let splitSvelteKitText = SplitText.create(svelteKitEl, { type: 'chars, words' });
+		let splitSpotliteStudiosText = SplitText.create(spotliteStudiosEl, { type: 'chars, words' });
 
 		let timeline = gsap.timeline({
 			delay: 1
@@ -92,31 +92,34 @@
 	});
 </script>
 
-<h1
-	class="text-6xl font-bold text-midnight-500 drop-shadow-md drop-shadow-midnight-900"
-	bind:this={nameEl}
->
-	Nathan Hoyt
-</h1>
+<div class="flex h-[50vh] flex-col justify-center">
+	<h1
+		class="text-5xl font-bold text-midnight-500 drop-shadow-md drop-shadow-midnight-900 sm:text-6xl"
+		bind:this={nameEl}
+	>
+		Nathan Hoyt
+	</h1>
 
-<div class="relative h-24">
-	<div
-		class="opactity-0 absolute my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
-		bind:this={fullStackEl}
-	></div>
-	<div
-		class="opactity-0 absolute my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
-		bind:this={svelteKitEl}
-	></div>
-	<div
-		class="opactity-0 my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
-		bind:this={spotliteStudiosEl}
-	></div>
+	<div class="relative">
+		<div
+			class="opactity-0 absolute my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
+			bind:this={fullStackEl}
+		></div>
+		<div
+			class="opactity-0 absolute my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
+			bind:this={svelteKitEl}
+		></div>
+		<div
+			class="opactity-0 my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
+			bind:this={spotliteStudiosEl}
+		></div>
+	</div>
+
+	<p class="text-lg drop-shadow-md drop-shadow-midnight-900">
+		I'm a software engineer with a passion for building web applications that are both functional
+		and beautiful. I specialize in in SvelteKit, Tailwind, Node, and TypeScript, and am the founder
+		of <BounceLink href="https://spotlitestudios.com" classes="whitespace-nowrap"
+			>Spotlite Studios</BounceLink
+		>
+	</p>
 </div>
-
-<p class="text-lg drop-shadow-md drop-shadow-midnight-900">
-	I'm a software engineer with a passion for building web applications that are both functional and
-	beautiful. I'm the founder of <BounceLink href="https://spotlitestudios.com"
-		>Spotlite Studios</BounceLink
-	>, specializing in SvelteKit, Tailwind, Node, and TypeScript.
-</p>

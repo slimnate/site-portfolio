@@ -33,7 +33,7 @@
 	}
 </script>
 
-<div class="fixed top-2/5 right-16 z-20 w-16 -translate-y-1/2">
+<div class="fixed top-2/5 right-4 z-20 w-12 -translate-y-1/2 md:w-16 xl:right-12">
 	<div
 		class="flex flex-col items-center justify-center gap-4 rounded-full border-2 border-midnight-400 p-4"
 	>
@@ -45,7 +45,7 @@
 				onmouseleave={() => hoverOut(githubEl)}
 				bind:this={githubEl}
 				><svg
-					class="h-8 w-8 fill-midnight-500"
+					class="h-6 w-6 fill-midnight-500 md:h-8 md:w-8"
 					role="img"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@
 				onmouseleave={() => hoverOut(linkedinEl)}
 				bind:this={linkedinEl}
 				><svg
-					class="h-8 w-8 fill-midnight-500"
+					class="h-6 w-6 fill-midnight-500 md:h-8 md:w-8"
 					role="img"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@
 				onmouseleave={() => hoverOut(xEl)}
 				bind:this={xEl}
 				><svg
-					class="h-8 w-8 fill-midnight-500"
+					class="h-6 w-6 fill-midnight-500 md:h-8 md:w-8"
 					role="img"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +112,7 @@
 				onmouseleave={() => hoverOut(instagramEl)}
 				bind:this={instagramEl}
 				><svg
-					class="h-8 w-8 fill-midnight-500"
+					class="h-6 w-6 fill-midnight-500 md:h-8 md:w-8"
 					role="img"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@
 				onmouseleave={() => hoverOut(blogEl)}
 				bind:this={blogEl}
 				><svg
-					class="h-8 w-8 fill-midnight-500"
+					class="h-6 w-6 fill-midnight-500 md:h-8 md:w-8"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 512 512"
 					xml:space="preserve"
