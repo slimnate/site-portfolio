@@ -3,17 +3,8 @@
 	import { gsap } from 'gsap';
 	import type { SkillIconProps } from './SkillIcon.types';
 
-	let {
-		skill,
-		level = 5,
-		imageUrl,
-		size,
-		classes,
-		style,
-		startColor,
-		endColor,
-		name
-	}: SkillIconProps = $props();
+	let { skill, level, imageUrl, size, classes, style, startColor, endColor, name }: SkillIconProps =
+		$props();
 
 	function levelToString(level: number): string {
 		return level === 1
@@ -31,7 +22,10 @@
 		const url = new URL('https://skill-progress.netlify.app/.netlify/functions/progress');
 
 		url.searchParams.set('skill', skill);
-		url.searchParams.set('level', level.toString());
+
+		if (level) {
+			url.searchParams.set('level', level.toString());
+		}
 
 		if (imageUrl) {
 			url.searchParams.set('imageUrl', imageUrl);
@@ -56,8 +50,8 @@
 		return url.toString();
 	});
 
-	const titleText = $derived(`${name ? name : skill} - ${levelToString(level)}`);
-	const levelFactor = $derived(level / 5);
+	const titleText = $derived(`${name ? name : skill} ${level ? `- ${levelToString(level)}` : ''}`);
+	const levelFactor = $derived(level ? level / 5 : 3);
 
 	let iconEl: HTMLImageElement | null = null;
 	let idleTween: gsap.core.Tween | null = null;
@@ -132,7 +126,7 @@
 		src={progressUrl}
 		alt={titleText}
 		title={titleText}
-		class={`${classes ? classes : 'w-16'} skill-icon-clean`}
+		class={`${classes} skill-icon-clean`}
 	/>
 </div>
 

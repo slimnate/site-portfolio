@@ -23,7 +23,7 @@
 		class="flex flex-wrap items-center justify-center gap-2 pt-8 transition-all duration-300 group-hover:-translate-y-2 group-hover:scale-110 md:max-w-xl"
 	>
 		{#each skills as skill}
-			<SkillIcon {...skill} classes="w-16 group-hover:skew-2" />
+			<SkillIcon {...skill} classes="md:w-16" />
 		{/each}
 	</div>
 </div>
