@@ -19,7 +19,7 @@
 	}
 
 	const progressUrl = $derived.by(() => {
-		const url = new URL('https://skill-progress.netlify.app/.netlify/functions/progress');
+		const url = new URL('https://skill-progress-production.up.railway.app/progress');
 
 		url.searchParams.set('skill', skill);
 
