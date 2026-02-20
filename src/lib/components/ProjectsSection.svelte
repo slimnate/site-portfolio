@@ -238,7 +238,7 @@
 			>
 				<div class="flex gap-2">
 					{#each project.skills as skill}
-						<SkillIcon {skill} classes="w-8 sm:w-10" />
+						<SkillIcon {skill} classes="h-8 w-8 sm:h-10 sm:w-10" />
 					{/each}
 				</div>
 			</div>

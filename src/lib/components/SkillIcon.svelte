@@ -55,6 +55,23 @@
 
 	let iconEl: HTMLImageElement | null = null;
 	let idleTween: gsap.core.Tween | null = null;
+	let isLoading = $state(true);
+	let hasError = $state(false);
+
+	$effect(() => {
+		progressUrl;
+		isLoading = true;
+		hasError = false;
+	});
+
+	function handleImageLoaded(): void {
+		isLoading = false;
+	}
+
+	function handleImageError(): void {
+		isLoading = false;
+		hasError = true;
+	}
 
 	function handleEnter(): void {
 		if (!iconEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -121,18 +138,75 @@
 	aria-label={titleText}
 	role="img"
 >
+	{#if isLoading}
+		<div class="spinner-wrap" aria-hidden="true">
+			<svg class="spinner" viewBox="0 0 40 40">
+				<circle class="spinner-track" cx="20" cy="20" r="16" />
+				<circle class="spinner-head" cx="20" cy="20" r="16" />
+			</svg>
+		</div>
+	{/if}
+
 	<img
 		bind:this={iconEl}
 		src={progressUrl}
 		alt={titleText}
 		title={titleText}
-		class={`${classes} skill-icon-clean`}
+		loading="lazy"
+		decoding="async"
+		onload={handleImageLoaded}
+		onerror={handleImageError}
+		class={`${classes} skill-icon-clean ${isLoading ? 'opacity-0' : 'opacity-100'}`}
 	/>
+
+	{#if hasError}
+		<div class="image-fallback" aria-hidden="true">!</div>
+	{/if}
 </div>
 
 <style>
+	.spinner-wrap {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.spinner {
+		width: 1.25rem;
+		height: 1.25rem;
+		animation: spin 0.9s linear infinite;
+	}
+
+	.spinner-track {
+		fill: none;
+		stroke: var(--color-midnight-400);
+		stroke-width: 3;
+	}
+
+	.spinner-head {
+		fill: none;
+		stroke: var(--color-platinum);
+		stroke-width: 3;
+		stroke-linecap: round;
+		stroke-dasharray: 46 120;
+	}
+
+	.image-fallback {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		font-weight: 700;
+		opacity: 0.82;
+	}
+
 	.skill-icon-clean {
-		transition: filter 180ms ease;
+		transition:
+			opacity 180ms ease,
+			filter 180ms ease;
 		will-change: transform, filter;
 	}
 
@@ -152,7 +226,17 @@
 		transition: transform 180ms ease;
 	}
 
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
 	@media (prefers-reduced-motion: reduce) {
+		.spinner {
+			animation: none;
+		}
+
 		.skill-icon-clean {
 			transition: none;
 		}
