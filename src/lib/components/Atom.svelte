@@ -2,11 +2,15 @@
 	import { onMount } from 'svelte';
 
 	let {
-		electronCount = 40,
+		electronCount = 15,
 		nucleusFill = 'red',
+		nucleusSize = 10,
 		electronFill = 'blue',
+		electronSize = 5,
 		orbitalStroke = 'white',
-		syncOrbit = false
+		syncOrbit = false,
+		size = 200,
+		classes = ''
 	} = $props();
 
 	// Orbital constants
@@ -151,14 +155,15 @@
 
 <div>
 	<svg
-		width="200"
-		height="200"
+		class={classes}
+		width={size}
+		height={size}
 		viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<!-- Nucleus -->
-		<circle cx={centerX} cy={centerY} r="10" fill={nucleusFill} />
+		<circle cx={centerX} cy={centerY} r={nucleusSize} fill={nucleusFill} />
 
 		{#each orbitals as orbital}
 			<circle
@@ -174,7 +179,7 @@
 					id={electron.id}
 					cx={electron.x}
 					cy={electron.y}
-					r="5"
+					r={electronSize}
 					fill={electronFill}
 					class="electron-orbit-{syncOrbit ? 'sync' : orbital.getOrbitalNumber()}"
 					style="transform-origin: {centerX}px {centerY}px;"

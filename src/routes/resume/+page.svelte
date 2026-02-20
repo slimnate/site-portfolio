@@ -21,5 +21,10 @@
 		<span>Hover me</span>
 	</ButtonGradientBackgroundDistance>
 
-	<Atom />
+	<Atom
+		electronCount={15}
+		nucleusFill="var(--color-midnight-500)"
+		electronFill="var(--color-midnight-600)"
+		orbitalStroke="var(--color-platinum)"
+	/>
 </div>
