@@ -270,12 +270,3 @@
 		</div>
 	{/each}
 </div>
-
-<style>
-	.skills-label {
-	}
-
-	.skills-label::before {
-		background-image: url('/img/skill-progress-1280x720.png');
-	}
-</style>
