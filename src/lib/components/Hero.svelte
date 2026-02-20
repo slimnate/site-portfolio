@@ -92,7 +92,7 @@
 	});
 </script>
 
-<div class="flex h-[50vh] flex-col justify-center">
+<div class="relative flex h-[60vh] flex-col justify-center">
 	<h1
 		class="text-5xl font-bold text-midnight-500 drop-shadow-md drop-shadow-midnight-900 sm:text-6xl"
 		bind:this={nameEl}
