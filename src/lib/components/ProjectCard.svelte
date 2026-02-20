@@ -36,12 +36,12 @@
 	/>
 
 	<!-- content -->
-	<div class="flex h-full w-full basis-1/2 flex-col justify-between self-start pt-6 pb-2">
+	<div class="flex h-full w-full basis-1/2 flex-col justify-between self-start pt-4 pb-2">
 		<!-- description -->
-		<p class="text-md">{project.description}</p>
+		<p class="text-md pb-6 md:pt-4">{project.description}</p>
 
 		<!-- links -->
-		<div class="flex justify-end gap-8 pr-2">
+		<div class="flex justify-end gap-6 pr-4">
 			{#each project.links as link}
 				{#if link.type === 'website'}
 					<!-- website icon-->

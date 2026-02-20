@@ -36,6 +36,7 @@ const backendSkills: SkillIconProps[] = [
 
 const cloudSkills: SkillIconProps[] = [
 	{ skill: 'netlify', level: 5, name: 'Netlify' },
+	{ skill: 'railway', level: 3, name: 'Railway' },
 	{ skill: 'supabase', level: 2, name: 'Supabase' },
 	{ skill: 'firebase', level: 1, name: 'Firebase' },
 	{ skill: 'gcp', level: 2, name: 'Google Cloud Platform' },
@@ -57,6 +58,7 @@ const toolsSkills: SkillIconProps[] = [
 	{ skill: 'bitbucket', level: 4, name: 'Bitbucket' },
 	{ skill: 'neovim', level: 3, name: 'Neovim' },
 	{ skill: 'vscode', level: 5, name: 'VS Code' },
+	{ skill: 'cursor', level: 5, name: 'Cursor' },
 	{ skill: 'visualstudio', level: 5, name: 'Visual Studio' },
 	{ skill: 'postman', level: 4, name: 'Postman' },
 	{ skill: 'figma', level: 2, name: 'Figma' }
