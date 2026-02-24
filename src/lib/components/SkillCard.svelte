@@ -9,19 +9,23 @@
 	};
 
 	let { title, skills = [] }: SkillSectionProps = $props();
+	let titleEl = $state<HTMLDivElement | null>(null);
+	let titleHeight = $derived(titleEl?.clientHeight ?? 0);
 </script>
 
 <div
-	class="skill-card-clean group relative mt-8 flex items-center justify-evenly gap-2 rounded-3xl border-2 border-platinum bg-midnight-500 p-8 pt-8 transition-all duration-300 hover:border-t-transparent hover:shadow-lg hover:shadow-midnight-900/40"
+	class="skill-card-clean group relative mt-8 flex flex-col justify-evenly gap-2 rounded-3xl border-2 border-platinum bg-midnight-500 p-8 pt-8 transition-all duration-300 hover:border-t-transparent hover:shadow-lg hover:shadow-midnight-900/40"
 >
 	<div
-		class="absolute top-3 left-8 text-xl font-bold text-platinum drop-shadow-xl drop-shadow-midnight-900 transition-all duration-300 group-hover:-top-4 sm:text-2xl md:text-3xl"
+		class="absolute top-3 left-8 mr-16 text-xl font-bold text-platinum drop-shadow-xl drop-shadow-midnight-900 transition-all duration-300 group-hover:-top-4 sm:text-2xl md:text-3xl"
+		bind:this={titleEl}
 	>
 		{title}
 	</div>
 
 	<div
-		class="z-20 flex flex-wrap items-center justify-center gap-2 pt-8 transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-110 md:max-w-xl"
+		class="z-20 flex flex-wrap items-center justify-center gap-2 transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-110 md:max-w-xl"
+		style="padding-top: {titleHeight + 4}px;"
 	>
 		{#each skills as skill}
 			<SkillIcon {...skill} classes="h-12 w-12 md:h-16 md:w-16" />

@@ -53,18 +53,63 @@
 	const titleText = $derived(`${name ? name : skill} ${level ? `- ${levelToString(level)}` : ''}`);
 	const levelFactor = $derived(level ? level / 5 : 3);
 
+	let containerEl: HTMLButtonElement | null = null;
 	let iconEl: HTMLImageElement | null = null;
+	let tooltipEl: HTMLDivElement | null = null;
 	let idleTween: gsap.core.Tween | null = null;
 	let isLoading = $state(true);
 	let hasError = $state(false);
 	let isHovered = $state(false);
 	let isFocused = $state(false);
-	const showTooltip = $derived(isHovered || isFocused);
+	let isTouchDevice = $state(false);
+	let isTouchTooltipOpen = $state(false);
+	let tooltipShiftX = $state(0);
+	const showTooltip = $derived(isHovered || isFocused || isTouchTooltipOpen);
 
 	$effect(() => {
 		progressUrl;
 		isLoading = true;
 		hasError = false;
+	});
+
+	function updateTooltipShift(): void {
+		if (!tooltipEl || !showTooltip || typeof window === 'undefined') {
+			tooltipShiftX = 0;
+			return;
+		}
+
+		const rect = tooltipEl.getBoundingClientRect();
+		const edgePadding = 8;
+		let shift = 0;
+
+		if (rect.left < edgePadding) {
+			shift += edgePadding - rect.left;
+		}
+
+		if (rect.right > window.innerWidth - edgePadding) {
+			shift -= rect.right - (window.innerWidth - edgePadding);
+		}
+
+		tooltipShiftX = Math.round(shift);
+	}
+
+	$effect(() => {
+		if (!showTooltip || typeof window === 'undefined') {
+			tooltipShiftX = 0;
+			return;
+		}
+
+		const rafId = window.requestAnimationFrame(() => {
+			updateTooltipShift();
+		});
+		const timeoutId = window.setTimeout(() => {
+			updateTooltipShift();
+		}, 300);
+
+		return () => {
+			window.cancelAnimationFrame(rafId);
+			window.clearTimeout(timeoutId);
+		};
 	});
 
 	function handleImageLoaded(): void {
@@ -77,6 +122,10 @@
 	}
 
 	function handleEnter(): void {
+		if (isTouchDevice) {
+			return;
+		}
+
 		isHovered = true;
 
 		if (!iconEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -96,6 +145,10 @@
 	}
 
 	function handleLeave(): void {
+		if (isTouchDevice) {
+			return;
+		}
+
 		isHovered = false;
 
 		if (!iconEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -123,21 +176,71 @@
 		isFocused = false;
 	}
 
-	onMount(() => {
-		if (!iconEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+	function handlePointerDown(event: PointerEvent): void {
+		if (!isTouchDevice || event.pointerType === 'mouse') {
 			return;
 		}
 
-		idleTween = gsap.to(iconEl, {
-			y: -2 - levelFactor * 0.8,
-			scale: 1.008 + levelFactor * 0.01,
-			duration: 2.4 - levelFactor * 0.4,
-			repeat: -1,
-			yoyo: true,
-			ease: 'sine.inOut'
-		});
+		event.preventDefault();
+		isHovered = false;
+		isTouchTooltipOpen = !isTouchTooltipOpen;
+	}
+
+	onMount(() => {
+		const touchMedia = window.matchMedia('(hover: none), (pointer: coarse)');
+		const syncTouchDevice = () => {
+			isTouchDevice = touchMedia.matches || navigator.maxTouchPoints > 0;
+			if (!isTouchDevice) {
+				isTouchTooltipOpen = false;
+			}
+		};
+		const closeTouchTooltip = () => {
+			isTouchTooltipOpen = false;
+		};
+		const handleDocumentPointerDown = (event: PointerEvent) => {
+			if (!isTouchTooltipOpen) {
+				return;
+			}
+
+			const targetNode = event.target as Node | null;
+			if (targetNode && containerEl?.contains(targetNode)) {
+				return;
+			}
+
+			isTouchTooltipOpen = false;
+		};
+		const handleWindowKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') {
+				closeTouchTooltip();
+			}
+		};
+
+		syncTouchDevice();
+		touchMedia.addEventListener('change', syncTouchDevice);
+		document.addEventListener('pointerdown', handleDocumentPointerDown, true);
+		window.addEventListener('scroll', closeTouchTooltip, { passive: true });
+		window.addEventListener('resize', closeTouchTooltip, { passive: true });
+		window.addEventListener('blur', closeTouchTooltip);
+		window.addEventListener('keydown', handleWindowKeyDown);
+
+		if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && iconEl) {
+			idleTween = gsap.to(iconEl, {
+				y: -2 - levelFactor * 0.8,
+				scale: 1.008 + levelFactor * 0.01,
+				duration: 2.4 - levelFactor * 0.4,
+				repeat: -1,
+				yoyo: true,
+				ease: 'sine.inOut'
+			});
+		}
 
 		return () => {
+			touchMedia.removeEventListener('change', syncTouchDevice);
+			document.removeEventListener('pointerdown', handleDocumentPointerDown, true);
+			window.removeEventListener('scroll', closeTouchTooltip);
+			window.removeEventListener('resize', closeTouchTooltip);
+			window.removeEventListener('blur', closeTouchTooltip);
+			window.removeEventListener('keydown', handleWindowKeyDown);
 			idleTween?.kill();
 			if (iconEl) {
 				gsap.killTweensOf(iconEl);
@@ -147,13 +250,17 @@
 </script>
 
 <button
+	bind:this={containerEl}
 	type="button"
 	class="skill-icon-container relative"
 	onmouseenter={handleEnter}
 	onmouseleave={handleLeave}
+	onpointerdown={handlePointerDown}
 	onfocus={handleFocus}
 	onblur={handleBlur}
 	aria-label={titleText}
+	aria-expanded={showTooltip}
+	aria-haspopup="true"
 >
 	{#if isLoading}
 		<div class="spinner-wrap" aria-hidden="true">
@@ -177,9 +284,10 @@
 
 	<div class="skill-tooltip-anchor" aria-hidden={!showTooltip}>
 		<div
+			style={`--tooltip-shift-x: ${tooltipShiftX}px;`}
 			class={`skill-tooltip-motion skill-tooltip-motion-anim-tilt-unfold ${showTooltip ? 'skill-tooltip-motion-visible' : ''}`}
 		>
-			<div class="skill-tooltip" role="tooltip" aria-hidden={!showTooltip}>
+			<div bind:this={tooltipEl} class="skill-tooltip" role="tooltip" aria-hidden={!showTooltip}>
 				{titleText}
 				<span class="skill-tooltip-caret" aria-hidden="true"></span>
 			</div>
@@ -262,7 +370,7 @@
 
 	.skill-tooltip-motion {
 		width: max-content;
-		transform: translateY(8px) scale(0.96);
+		transform: translate(var(--tooltip-shift-x, 0px), 8px) scale(0.96);
 		transform-origin: 50% 100%;
 		opacity: 0;
 		filter: none;
@@ -305,12 +413,13 @@
 
 	.skill-tooltip-motion-visible {
 		opacity: 1;
-		transform: translateY(0) scale(1);
+		transform: translate(var(--tooltip-shift-x, 0px), 0) scale(1);
 		filter: none;
 	}
 
 	.skill-tooltip-motion-anim-tilt-unfold:not(.skill-tooltip-motion-visible) {
-		transform: translateY(14px) perspective(720px) rotateX(-42deg) rotateZ(-2deg);
+		transform: translate(var(--tooltip-shift-x, 0px), 14px) perspective(720px) rotateX(-42deg)
+			rotateZ(-2deg);
 		transform-origin: 50% 115%;
 	}
 
@@ -349,16 +458,18 @@
 	@keyframes tooltip-tilt-unfold-motion {
 		0% {
 			opacity: 0;
-			transform: translateY(14px) perspective(720px) rotateY(-42deg) rotateZ(-50deg);
+			transform: translate(var(--tooltip-shift-x, 0px), 14px) perspective(720px) rotateY(-42deg)
+				rotateZ(-50deg);
 		}
 
 		70% {
 			opacity: 1;
-			transform: translateY(-1px) perspective(720px) rotateX(7deg) rotateZ(0.5deg);
+			transform: translate(var(--tooltip-shift-x, 0px), -1px) perspective(720px) rotateX(7deg)
+				rotateZ(0.5deg);
 		}
 
 		100% {
-			transform: translateY(0);
+			transform: translate(var(--tooltip-shift-x, 0px), 0);
 		}
 	}
 
@@ -373,7 +484,7 @@
 
 		.skill-tooltip-motion {
 			transition: none;
-			transform: translateY(0);
+			transform: translate(var(--tooltip-shift-x, 0px), 0);
 			filter: none;
 		}
 

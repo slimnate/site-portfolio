@@ -92,9 +92,9 @@
 	});
 </script>
 
-<div class="relative flex h-[60vh] flex-col justify-center">
+<div class="relative flex min-h-[60svh] flex-col justify-center">
 	<h1
-		class="text-5xl font-bold text-midnight-500 drop-shadow-md drop-shadow-midnight-900 sm:text-6xl"
+		class="text-4xl font-bold whitespace-nowrap text-midnight-500 drop-shadow-md drop-shadow-midnight-900 sm:text-5xl md:text-6xl"
 		bind:this={nameEl}
 	>
 		Nathan Hoyt
@@ -102,15 +102,15 @@
 
 	<div class="relative">
 		<div
-			class="opactity-0 absolute my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
+			class="opactity-0 absolute my-6 text-2xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900 sm:text-3xl"
 			bind:this={fullStackEl}
 		></div>
 		<div
-			class="opactity-0 absolute my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
+			class="opactity-0 absolute my-6 text-2xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900 sm:text-3xl"
 			bind:this={svelteKitEl}
 		></div>
 		<div
-			class="opactity-0 my-6 text-3xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900"
+			class="opactity-0 my-6 text-2xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900 sm:text-3xl"
 			bind:this={spotliteStudiosEl}
 		></div>
 	</div>

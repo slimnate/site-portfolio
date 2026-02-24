@@ -3,6 +3,11 @@
 	import SkillIcon from '$lib/components/SkillIcon.svelte';
 	import MonitorFramedImage from '$lib/components/MonitorFramedImage.svelte';
 	import type { Project } from '$lib/components/ProjectCard.types';
+	import { browser } from '$app/environment';
+
+	let nameEl = $state<HTMLDivElement | null>(null);
+	let nameHeight = $derived(nameEl?.clientHeight ?? 0);
+	let isMd = $derived(browser && window?.matchMedia('(width >= 48rem)').matches);
 
 	let { project }: { project: Project } = $props();
 </script>
@@ -13,6 +18,7 @@
 >
 	<div
 		class="absolute top-2 left-8 text-left text-xl font-bold text-platinum drop-shadow-xl drop-shadow-midnight-900 transition-all duration-300 group-hover:-top-4 group-hover:text-2xl lg:text-2xl"
+		bind:this={nameEl}
 	>
 		{project.name}
 	</div>
@@ -20,6 +26,7 @@
 	<!-- skills -->
 	<div
 		class="relative flex flex-col gap-2 pt-4 transition-all duration-500 group-hover:-translate-y-4 group-hover:scale-110 md:absolute md:top-2 md:right-8 md:group-hover:-top-4 md:group-hover:right-12"
+		style="padding-top: {isMd ? 0 : nameHeight - 12}px;"
 	>
 		<div class="flex gap-2">
 			{#each project.skills as skill}
