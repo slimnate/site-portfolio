@@ -1,4 +1,5 @@
 type Level = 1 | 2 | 3 | 4 | 5;
+
 type SkillIconProps = {
 	skill: string;
 	level?: Level;

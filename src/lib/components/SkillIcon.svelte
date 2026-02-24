@@ -175,13 +175,15 @@
 		class={`${classes} skill-icon-clean ${isLoading ? 'opacity-0' : 'opacity-100'}`}
 	/>
 
-	<div
-		class={`skill-tooltip ${showTooltip ? 'skill-tooltip-visible' : ''}`}
-		role="tooltip"
-		aria-hidden={!showTooltip}
-	>
-		{titleText}
-		<span class="skill-tooltip-caret" aria-hidden="true"></span>
+	<div class="skill-tooltip-anchor" aria-hidden={!showTooltip}>
+		<div
+			class={`skill-tooltip-motion skill-tooltip-motion-anim-tilt-unfold ${showTooltip ? 'skill-tooltip-motion-visible' : ''}`}
+		>
+			<div class="skill-tooltip" role="tooltip" aria-hidden={!showTooltip}>
+				{titleText}
+				<span class="skill-tooltip-caret" aria-hidden="true"></span>
+			</div>
+		</div>
 	</div>
 
 	{#if hasError}
@@ -247,30 +249,44 @@
 		cursor: default;
 	}
 
+	.skill-tooltip-anchor {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: calc(100% + 0.55rem);
+		display: flex;
+		justify-content: center;
+		pointer-events: none;
+		z-index: 4;
+	}
+
+	.skill-tooltip-motion {
+		width: max-content;
+		transform: translateY(8px) scale(0.96);
+		transform-origin: 50% 100%;
+		opacity: 0;
+		filter: none;
+		transition:
+			opacity 170ms ease,
+			transform 210ms cubic-bezier(0.22, 1, 0.36, 1),
+			filter 210ms ease;
+		will-change: transform, opacity, filter;
+	}
+
 	.skill-tooltip {
 		--tooltip-border: color-mix(in srgb, var(--color-midnight-200) 44%, var(--color-midnight-400));
 		--tooltip-bg-solid: var(--color-midnight-700);
-		position: absolute;
-		left: 50%;
-		bottom: calc(100% + 0.55rem);
-		transform: translate(-50%, 8px) scale(0.96);
-		opacity: 0;
-		pointer-events: none;
 		white-space: nowrap;
-		padding: 0.25rem 0.55rem;
-		font-size: 0.65rem;
+		padding: 0.25rem 0.5rem;
+		font-size: 1rem;
 		font-weight: 600;
-		letter-spacing: 0.03em;
-		line-height: 1.1;
+		line-height: 1.2;
 		color: var(--color-platinum);
 		background: var(--tooltip-bg-solid);
 		border: 1px solid var(--tooltip-border);
 		border-radius: 0.45rem;
 		box-shadow: 0 10px 22px -14px rgba(0, 0, 0, 0.75);
-		transition:
-			opacity 160ms ease,
-			transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
-		z-index: 4;
+		backface-visibility: visible;
 	}
 
 	.skill-tooltip-caret {
@@ -287,9 +303,19 @@
 		pointer-events: none;
 	}
 
-	.skill-tooltip-visible {
+	.skill-tooltip-motion-visible {
 		opacity: 1;
-		transform: translate(-50%, 0) scale(1);
+		transform: translateY(0) scale(1);
+		filter: none;
+	}
+
+	.skill-tooltip-motion-anim-tilt-unfold:not(.skill-tooltip-motion-visible) {
+		transform: translateY(14px) perspective(720px) rotateX(-42deg) rotateZ(-2deg);
+		transform-origin: 50% 115%;
+	}
+
+	.skill-tooltip-motion-anim-tilt-unfold.skill-tooltip-motion-visible {
+		animation: tooltip-tilt-unfold-motion 280ms cubic-bezier(0.22, 1.06, 0.3, 1) 1;
 	}
 
 	.skill-icon-container::after {
@@ -320,6 +346,22 @@
 		}
 	}
 
+	@keyframes tooltip-tilt-unfold-motion {
+		0% {
+			opacity: 0;
+			transform: translateY(14px) perspective(720px) rotateY(-42deg) rotateZ(-50deg);
+		}
+
+		70% {
+			opacity: 1;
+			transform: translateY(-1px) perspective(720px) rotateX(7deg) rotateZ(0.5deg);
+		}
+
+		100% {
+			transform: translateY(0);
+		}
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		.spinner {
 			animation: none;
@@ -329,9 +371,14 @@
 			transition: none;
 		}
 
-		.skill-tooltip {
+		.skill-tooltip-motion {
 			transition: none;
-			transform: translate(-50%, 0) scale(1);
+			transform: translateY(0);
+			filter: none;
+		}
+
+		.skill-tooltip-motion.skill-tooltip-motion-visible {
+			animation: none;
 		}
 
 		.skill-icon-clean:hover {
