@@ -57,6 +57,9 @@
 	let idleTween: gsap.core.Tween | null = null;
 	let isLoading = $state(true);
 	let hasError = $state(false);
+	let isHovered = $state(false);
+	let isFocused = $state(false);
+	const showTooltip = $derived(isHovered || isFocused);
 
 	$effect(() => {
 		progressUrl;
@@ -74,6 +77,8 @@
 	}
 
 	function handleEnter(): void {
+		isHovered = true;
+
 		if (!iconEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			return;
 		}
@@ -91,6 +96,8 @@
 	}
 
 	function handleLeave(): void {
+		isHovered = false;
+
 		if (!iconEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			return;
 		}
@@ -106,6 +113,14 @@
 				idleTween?.play();
 			}
 		});
+	}
+
+	function handleFocus(): void {
+		isFocused = true;
+	}
+
+	function handleBlur(): void {
+		isFocused = false;
 	}
 
 	onMount(() => {
@@ -131,12 +146,14 @@
 	});
 </script>
 
-<div
+<button
+	type="button"
 	class="skill-icon-container relative"
 	onmouseenter={handleEnter}
 	onmouseleave={handleLeave}
+	onfocus={handleFocus}
+	onblur={handleBlur}
 	aria-label={titleText}
-	role="img"
 >
 	{#if isLoading}
 		<div class="spinner-wrap" aria-hidden="true">
@@ -151,7 +168,6 @@
 		bind:this={iconEl}
 		src={progressUrl}
 		alt={titleText}
-		title={titleText}
 		loading="lazy"
 		decoding="async"
 		onload={handleImageLoaded}
@@ -159,10 +175,19 @@
 		class={`${classes} skill-icon-clean ${isLoading ? 'opacity-0' : 'opacity-100'}`}
 	/>
 
+	<div
+		class={`skill-tooltip ${showTooltip ? 'skill-tooltip-visible' : ''}`}
+		role="tooltip"
+		aria-hidden={!showTooltip}
+	>
+		{titleText}
+		<span class="skill-tooltip-caret" aria-hidden="true"></span>
+	</div>
+
 	{#if hasError}
 		<div class="image-fallback" aria-hidden="true">!</div>
 	{/if}
-</div>
+</button>
 
 <style>
 	.spinner-wrap {
@@ -210,6 +235,63 @@
 		will-change: transform, filter;
 	}
 
+	.skill-icon-container {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+		border: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		line-height: 0;
+		cursor: default;
+	}
+
+	.skill-tooltip {
+		--tooltip-border: color-mix(in srgb, var(--color-midnight-200) 44%, var(--color-midnight-400));
+		--tooltip-bg-solid: var(--color-midnight-700);
+		position: absolute;
+		left: 50%;
+		bottom: calc(100% + 0.55rem);
+		transform: translate(-50%, 8px) scale(0.96);
+		opacity: 0;
+		pointer-events: none;
+		white-space: nowrap;
+		padding: 0.25rem 0.55rem;
+		font-size: 0.65rem;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		line-height: 1.1;
+		color: var(--color-platinum);
+		background: var(--tooltip-bg-solid);
+		border: 1px solid var(--tooltip-border);
+		border-radius: 0.45rem;
+		box-shadow: 0 10px 22px -14px rgba(0, 0, 0, 0.75);
+		transition:
+			opacity 160ms ease,
+			transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+		z-index: 4;
+	}
+
+	.skill-tooltip-caret {
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		width: 0.58rem;
+		height: 0.58rem;
+		background: var(--tooltip-bg-solid);
+		border-right: 1px solid var(--tooltip-border);
+		border-bottom: 1px solid var(--tooltip-border);
+		border-bottom-right-radius: 0.1rem;
+		transform: translate(-50%, -42%) rotate(45deg);
+		pointer-events: none;
+	}
+
+	.skill-tooltip-visible {
+		opacity: 1;
+		transform: translate(-50%, 0) scale(1);
+	}
+
 	.skill-icon-container::after {
 		content: '';
 		position: absolute;
@@ -226,6 +308,12 @@
 		transition: transform 180ms ease;
 	}
 
+	.skill-icon-container:focus-visible {
+		outline: 2px solid var(--color-midnight-200);
+		outline-offset: 0.18rem;
+		border-radius: 0.35rem;
+	}
+
 	@keyframes spin {
 		to {
 			transform: rotate(360deg);
@@ -239,6 +327,11 @@
 
 		.skill-icon-clean {
 			transition: none;
+		}
+
+		.skill-tooltip {
+			transition: none;
+			transform: translate(-50%, 0) scale(1);
 		}
 
 		.skill-icon-clean:hover {
