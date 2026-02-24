@@ -2,6 +2,7 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import SkillSection from '$lib/components/SkillSection.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
+	import BlogSection from '$lib/components/BlogSection.svelte';
 </script>
 
 <main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-12 lg:px-32">
@@ -17,15 +18,9 @@
 
 		<SkillSection />
 
-		<!-- Projects -->
 		<ProjectsSection />
 
-		<!-- Quick Stats -->
-		<h2
-			class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
-		>
-			Quick Stats
-		</h2>
+		<BlogSection />
 
 		<!-- Let's Connect -->
 		<h2
