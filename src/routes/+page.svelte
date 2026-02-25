@@ -3,6 +3,7 @@
 	import SkillSection from '$lib/components/SkillSection.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
 	import BlogSection from '$lib/components/BlogSection.svelte';
+	import ConnectSection from '$lib/components/ConnectSection.svelte';
 </script>
 
 <main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-12 lg:px-32">
@@ -22,11 +23,6 @@
 
 		<BlogSection />
 
-		<!-- Let's Connect -->
-		<h2
-			class="mt-24 text-center text-4xl font-bold text-midnight-400 drop-shadow-md drop-shadow-midnight-900"
-		>
-			Let's Connect
-		</h2>
+		<ConnectSection />
 	</div>
 </main>
