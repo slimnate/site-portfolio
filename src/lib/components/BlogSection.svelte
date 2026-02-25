@@ -9,7 +9,7 @@
 	Featured Blog Posts
 </h2>
 
-<div class="blog-section">
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 	{#each blogPosts as post}
 		<BlogCard {post} />
 	{/each}

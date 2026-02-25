@@ -6,7 +6,7 @@
 	let titleHeight = $derived(titleEl?.clientHeight ?? 0);
 </script>
 
-<article
+<div
 	class="blog-card-clean group relative mt-8 flex flex-col gap-4 rounded-3xl border-2 border-platinum bg-midnight-500 p-6 pt-12 transition-all duration-300 hover:border-t-transparent hover:shadow-lg hover:shadow-midnight-900/40"
 >
 	<div
@@ -18,8 +18,11 @@
 
 	<div
 		class="space-y-4 transition-all duration-500 group-hover:-translate-y-1"
-		style="padding-top: {titleHeight}px;"
+		style="padding-top: {titleHeight - 16}px;"
 	>
+		{#if post.imageUrl}
+			<img src={post.imageUrl} alt={post.title} class="mx-auto max-w-md rounded-lg" />
+		{/if}
 		<p class="text-sm/6 md:text-base/7">{post.description}</p>
 		<div class="flex justify-end pr-1">
 			<BounceLink href={post.url} classes="text-platinum/50 group-hover:text-platinum">
@@ -28,7 +31,7 @@
 			</BounceLink>
 		</div>
 	</div>
-</article>
+</div>
 
 <style>
 	.blog-card-clean {
