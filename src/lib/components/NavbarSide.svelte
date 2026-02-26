@@ -8,9 +8,7 @@
 	let instagramEl = $state<HTMLAnchorElement | null>(null);
 	let blogEl = $state<HTMLAnchorElement | null>(null);
 
-	onMount(() => {
-		console.log('NavbarSide mounted');
-	});
+	let { classes = '' } = $props();
 
 	function hoverIn(el: HTMLAnchorElement | null) {
 		if (!el) return;
@@ -33,7 +31,7 @@
 	}
 </script>
 
-<div class="fixed top-2/5 right-4 z-20 w-12 -translate-y-1/2 lg:w-16 xl:right-12">
+<div class="fixed top-2/5 right-4 z-20 w-12 -translate-y-1/2 lg:w-16 xl:right-12 {classes}">
 	<div
 		class="flex flex-col items-center justify-center gap-4 rounded-full border-2 border-midnight-400 p-4"
 	>

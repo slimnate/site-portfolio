@@ -155,7 +155,7 @@
 </script>
 
 <main class="z-1 mx-auto flex h-full max-w-7xl flex-col justify-center px-12 lg:px-32">
-	<div class="pr-8">
+	<div class="">
 		<!-- Header -->
 		<div class="flex flex-col">
 			<h1
@@ -184,7 +184,9 @@
 		>
 			Summary
 		</h2>
-		<p class="mt-8 text-base/7 text-platinum drop-shadow-md drop-shadow-midnight-900">
+		<p
+			class="mt-8 text-base/7 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+		>
 			Full-stack software developer with 4+ years of experience developing production applications.
 			Founded Spotlite Studios in 2025, a web development agency focused on small businesses in KC,
 			with 5 published websites and 100+ generated conversions so far. Experience developing Node.js
@@ -210,8 +212,10 @@
 				Spotlite Studios
 			</h3>
 			<p class="mt-1 text-lg font-bold text-midnight-400">Founder and Lead Developer</p>
-			<p class="mt-1 text-sm text-midnight-300">Kansas City, MO | April 2025 - Present</p>
-			<p class="mt-4 text-base/7 text-platinum drop-shadow-md drop-shadow-midnight-900">
+			<p class="text-sm text-midnight-300">Kansas City, MO | April 2025 - Present</p>
+			<p
+				class="mt-4 text-base/7 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+			>
 				Founded a web development agency serving small businesses in the Kansas City area. Portfolio
 				of 5 published websites with 100+ booking leads generated so far for my clients. Manage
 				projects along the entire lifecycle — gathering requirements, developing, hosting, and
@@ -219,7 +223,7 @@
 			</p>
 			<h4 class="mt-6 text-lg font-bold text-midnight-400">Key Achievements</h4>
 			<ul
-				class="mt-2 list-disc space-y-1 pl-6 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900"
+				class="mt-2 list-disc space-y-1 pl-6 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900"
 			>
 				<li>
 					Designed, developed, and deployed 5 production websites using SvelteKit, Tailwind, and
@@ -235,7 +239,7 @@
 			</ul>
 			<h4 class="mt-6 text-lg font-bold text-midnight-400">Client Portfolio</h4>
 			<ul
-				class="mt-2 list-disc space-y-1 pl-6 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900"
+				class="mt-2 list-disc space-y-1 pl-6 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900"
 			>
 				<li>
 					<BounceLink href="https://spotlitestudios.com">Spotlite Studios</BounceLink> — Agency website
@@ -276,8 +280,10 @@
 				Cerner Corporation
 			</h3>
 			<p class="mt-1 text-lg font-bold text-midnight-400">Software Engineering Intern</p>
-			<p class="mt-1 text-sm text-midnight-300">Kansas City | June 2013 - March 2016</p>
-			<p class="mt-4 text-base/7 text-platinum drop-shadow-md drop-shadow-midnight-900">
+			<p class="text-sm text-midnight-300">Kansas City | June 2013 - March 2016</p>
+			<p
+				class="mt-4 text-base/7 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+			>
 				Developed and maintained enterprise software solutions for use by the client support team in
 				an agile environment. Progressed to the lead developer on a C# desktop application providing
 				support agents instant access to client information. Developed additional tools to collect
@@ -285,7 +291,7 @@
 			</p>
 			<h4 class="mt-6 text-lg font-bold text-midnight-400">Key Accomplishments</h4>
 			<ul
-				class="mt-2 list-disc space-y-1 pl-6 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900"
+				class="mt-2 list-disc space-y-1 pl-6 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900"
 			>
 				<li>
 					Developed and maintained a C# desktop application providing customer support team instant
@@ -323,8 +329,10 @@
 				PowerSchool Group LLC
 			</h3>
 			<p class="mt-1 text-lg font-bold text-midnight-400">Technical Support Engineer</p>
-			<p class="mt-1 text-sm text-midnight-300">Shawnee, KS | July 2018 - July 2019</p>
-			<p class="mt-4 text-base/7 text-platinum drop-shadow-md drop-shadow-midnight-900">
+			<p class="text-sm text-midnight-300">Shawnee, KS | July 2018 - July 2019</p>
+			<p
+				class="mt-4 text-base/7 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+			>
 				Provided technical support for applicant tracking software in the education sector,
 				troubleshooting complex issues and collaborating with engineering teams to resolve
 				customer-reported bugs. Worked with large customers to manage complex updates to their job
@@ -332,7 +340,7 @@
 			</p>
 			<h4 class="mt-6 text-lg font-bold text-midnight-400">Key Responsibilities</h4>
 			<ul
-				class="mt-2 list-disc space-y-1 pl-6 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900"
+				class="mt-2 list-disc space-y-1 pl-6 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900"
 			>
 				<li>
 					Troubleshot customer issues with web-based software via phone, email, and SalesForce cases
@@ -369,8 +377,10 @@
 				Jack Stack BBQ
 			</h3>
 			<p class="mt-1 text-lg font-bold text-midnight-400">Bartender</p>
-			<p class="mt-1 text-sm text-midnight-300">Overland Park, KS | June 2021 - Present</p>
-			<p class="mt-4 text-base/7 text-platinum drop-shadow-md drop-shadow-midnight-900">
+			<p class="text-sm text-midnight-300">Overland Park, KS | June 2021 - Present</p>
+			<p
+				class="mt-4 text-base/7 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+			>
 				Provide exceptional customer service in a high-volume restaurant environment. Demonstrate
 				reliability through 5 years of continuous employment. Manage multiple priorities while
 				maintaining quality and efficiency.
@@ -449,7 +459,9 @@
 		<div class="mt-4 space-y-4">
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h4 class="text-lg font-bold text-midnight-400">LaserBeam</h4>
-				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
+				<p
+					class="mt-2 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+				>
 					Project at Cerner that collected application logs to a centralized database for analysis.
 				</p>
 				<div class="mt-4 flex flex-wrap gap-3">
@@ -460,7 +472,9 @@
 			</div>
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h4 class="text-lg font-bold text-midnight-400">Support Tool</h4>
-				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
+				<p
+					class="mt-2 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+				>
 					Google Chrome extension to vastly improve customer support efficiency for support team at
 					PowerSchool.
 				</p>
@@ -482,7 +496,9 @@
 						>workos-convex-sveltekit</BounceLink
 					>
 				</h4>
-				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
+				<p
+					class="mt-2 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+				>
 					Library that simplifies integration of WorkOS AuthKit and Convex database in SvelteKit
 					projects.
 				</p>
@@ -496,7 +512,9 @@
 				<h4 class="text-lg font-bold text-midnight-400">
 					<BounceLink href="https://npmjs.com/eipc-api">electron-ipc-api</BounceLink>
 				</h4>
-				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
+				<p
+					class="mt-2 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+				>
 					Package to generate an API that facilitates communication between the main process and
 					render process in Electron apps.
 				</p>
@@ -516,7 +534,9 @@
 				<h4 class="text-lg font-bold text-midnight-400">
 					<BounceLink href="https://github.com/slimnate/skill-progress">Skill-progress</BounceLink>
 				</h4>
-				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
+				<p
+					class="mt-2 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+				>
 					Microservice for generating an image that visually showcases skill level in a specific
 					technology.
 				</p>
@@ -530,7 +550,9 @@
 				<h4 class="text-lg font-bold text-midnight-400">
 					<BounceLink href="https://github.com/slimnate/keeper">Keeper</BounceLink>
 				</h4>
-				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
+				<p
+					class="mt-2 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+				>
 					Image culling app for photographers.
 				</p>
 				<div class="mt-4 flex flex-wrap gap-3">
@@ -543,7 +565,9 @@
 				<h4 class="text-lg font-bold text-midnight-400">
 					<BounceLink href="https://renvintory.netlify.app">Renvintory</BounceLink>
 				</h4>
-				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
+				<p
+					class="mt-2 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+				>
 					Inventory tracking app for bartenders at KC Renaissance Festival. Track open/close
 					inventory, and EOD reports.
 				</p>
@@ -559,7 +583,9 @@
 						>Reptile Humidity Controller</BounceLink
 					>
 				</h4>
-				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
+				<p
+					class="mt-2 text-sm/6 leading-snug text-platinum drop-shadow-md drop-shadow-midnight-900 md:leading-normal"
+				>
 					Fully custom PCB, embedded software, and mobile app to monitor and control humidity and
 					lighting schedule in reptile enclosures.
 				</p>
@@ -580,22 +606,25 @@
 		<div class="mt-8 space-y-4 pb-24">
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h3
-					class="text-2xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900 sm:text-3xl"
+					class="text-xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900 sm:text-2xl"
 				>
 					Metropolitan Community College - Blue River
 				</h3>
 				<p class="mt-1 text-lg font-bold text-midnight-400">
-					Associate of Applied Science, Computer Science
+					Associate of Applied Science, Computer Science | <span class="text-midnight-400/80"
+						>2013</span
+					>
 				</p>
-				<p class="mt-1 text-sm text-midnight-300">2013</p>
 			</div>
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h3
-					class="text-2xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900 sm:text-3xl"
+					class="text-xl font-bold text-platinum drop-shadow-md drop-shadow-midnight-900 sm:text-2xl"
 				>
 					Summit Technology Academy
 				</h3>
-				<p class="mt-1 text-sm text-midnight-300">2012 - 2013</p>
+				<p class="mt-1 text-sm text-midnight-400">
+					Networking Vocational School | <span class="text-midnight-400/80">2012 - 2013</span>
+				</p>
 			</div>
 		</div>
 	</div>
