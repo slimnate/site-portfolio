@@ -2,37 +2,38 @@ import type { SkillIconProps } from '$lib/components/SkillIcon.types';
 
 const languageSkills: SkillIconProps[] = [
 	{ skill: 'js', level: 5, name: 'JavaScript' },
-	{ skill: 'ts', level: 4, name: 'TypeScript' },
-	{ skill: 'html', level: 5, name: 'HTML' },
+	{ skill: 'ts', level: 5, name: 'TypeScript' },
+	{ skill: 'html', level: 4, name: 'HTML' },
 	{ skill: 'css', level: 4, name: 'CSS' },
-	{ skill: 'sass', level: 3, name: 'Sass' },
 	{ skill: 'cs', level: 3, name: 'C#' },
-	{ skill: 'java', level: 3, name: 'Java' },
+	{ skill: 'sass', level: 2, name: 'Sass' },
+	{ skill: 'java', level: 2, name: 'Java' },
 	{ skill: 'cpp', level: 2, name: 'C++' },
-	{ skill: 'php', level: 2, name: 'PHP' },
-	{ skill: 'py', level: 2, name: 'Python' },
+	{ skill: 'py', level: 3, name: 'Python' },
 	{ skill: 'ruby', level: 3, name: 'Ruby' },
-	{ skill: 'dart', level: 1, name: 'Dart' },
-	{ skill: 'go', level: 1, name: 'Go' }
+	{ skill: 'dart', level: 2, name: 'Dart' },
+	{ skill: 'go', level: 2, name: 'Go' },
+	{ skill: 'php', level: 1, name: 'PHP' }
 ];
 
 const frameworkSkills: SkillIconProps[] = [
 	{ skill: 'svelte', level: 4, name: 'Svelte' },
-	{ skill: 'react', level: 3, name: 'React' },
-	{ skill: 'rails', level: 3, name: 'Ruby on Rails' },
-	{ skill: 'flutter', level: 2, name: 'Flutter' },
 	{ skill: 'tailwind', level: 5, name: 'Tailwind CSS' },
-	{ skill: 'jquery', level: 4, name: 'jQuery' },
-	{ skill: 'dotnet', level: 3, name: '.NET' },
-	{ skill: 'wpf', level: 3, name: 'WPF' },
-	{ skill: 'bootstrap', level: 3, name: 'Bootstrap' },
-	{ skill: 'socketio', level: 3, name: 'Socket.IO' },
-	{ skill: 'jekyll', level: 2, name: 'Jekyll' }
+	{ skill: 'dotnet', level: 4, name: '.NET' },
+	{ skill: 'wpf', level: 4, name: 'WPF' },
+	{ skill: 'react', level: 2, name: 'React' },
+	{ skill: 'rails', level: 3, name: 'Ruby on Rails' },
+	{ skill: 'chrome', level: 3, name: 'Chrome Extension Framework' },
+	{ skill: 'flutter', level: 2, name: 'Flutter' },
+	{ skill: 'jquery', level: 3, name: 'jQuery' },
+	{ skill: 'bootstrap', level: 2, name: 'Bootstrap' },
+	{ skill: 'socketio', level: 2, name: 'Socket.IO' },
+	{ skill: 'jekyll', level: 3, name: 'Jekyll' }
 ];
 
 const backendSkills: SkillIconProps[] = [
 	{ skill: 'nodejs', level: 5, name: 'Node.js' },
-	{ skill: 'convex', level: 4, name: 'Convex' },
+	{ skill: 'convex', level: 3, name: 'Convex' },
 	{ skill: 'mongodb', level: 3, name: 'MongoDB' },
 	{ skill: 'postgres', level: 3, name: 'PostgreSQL' },
 	{ skill: 'mysql', level: 3, name: 'MySQL' },
@@ -58,18 +59,17 @@ const devOpsSkills: SkillIconProps[] = [
 ];
 
 const toolsSkills: SkillIconProps[] = [
-	{ skill: 'git', level: 4, name: 'Git' },
-	{ skill: 'github', level: 5, name: 'GitHub' },
-	{ skill: 'bitbucket', level: 4, name: 'Bitbucket' },
-	{ skill: 'neovim', level: 3, name: 'Neovim' },
 	{ skill: 'vscode', level: 5, name: 'VS Code' },
 	{ skill: 'cursor', level: 5, name: 'Cursor' },
 	{ skill: 'visualstudio', level: 5, name: 'Visual Studio' },
+	{ skill: 'neovim', level: 3, name: 'Neovim' },
+	{ skill: 'github', level: 5, name: 'GitHub' },
+	{ skill: 'git', level: 4, name: 'Git' },
+	{ skill: 'bitbucket', level: 4, name: 'Bitbucket' },
 	{ skill: 'postman', level: 4, name: 'Postman' },
 	{ skill: 'figma', level: 2, name: 'Figma' },
-	{ skill: 'jira', level: 2, name: 'JIRA' },
-	{ skill: 'chrome', level: 3, name: 'Google Chrome' },
-	{ skill: 'salesforce', level: 2, name: 'SalesForce' }
+	{ skill: 'jira', level: 4, name: 'JIRA' },
+	{ skill: 'salesforce', level: 4, name: 'SalesForce' }
 ];
 
 const systemsSkills: SkillIconProps[] = [
