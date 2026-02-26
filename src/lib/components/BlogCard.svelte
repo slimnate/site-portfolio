@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BounceLink from '$lib/components/BounceLink.svelte';
+	import MonitorFramedImage from '$lib/components/MonitorFramedImage.svelte';
 	import type { BlogPost } from '$lib/components/BlogCard.types';
 	let { post }: { post: BlogPost } = $props();
 	let titleEl = $state<HTMLDivElement | null>(null);
@@ -21,7 +22,11 @@
 		style="padding-top: {titleHeight - 16}px;"
 	>
 		{#if post.imageUrl}
-			<img src={post.imageUrl} alt={post.title} class="mx-auto max-w-md rounded-lg" />
+			<MonitorFramedImage
+				src={post.imageUrl}
+				alt={post.title}
+				containerClasses="mx-auto max-w-md"
+			/>
 		{/if}
 		<p class="text-sm/6 md:text-base/7">{post.description}</p>
 		<div class="flex justify-end pr-1">
