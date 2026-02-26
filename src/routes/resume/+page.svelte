@@ -79,6 +79,44 @@
 		{ skill: 'npm', name: 'npm' },
 		{ skill: 'bash', name: 'CLI' }
 	];
+
+	const workosConvexSvelitekitTech = [
+		{ skill: 'workos', name: 'WorkOS' },
+		{ skill: 'convex', name: 'Convex' },
+		{ skill: 'svelte', name: 'SvelteKit' },
+		{ skill: 'ts', name: 'TypeScript' },
+		{ skill: 'nodejs', name: 'Node.js' }
+	];
+
+	const skillProgressTech = [
+		{ skill: 'ts', name: 'TypeScript' },
+		{ skill: 'express', name: 'Express' },
+		{ skill: 'netlify', name: 'Netlify' },
+		{ skill: 'railway', name: 'Railway' },
+		{ skill: 'npm', name: 'npm' },
+		{ skill: 'svg', name: 'SVG' }
+	];
+
+	const electronIpcApiTech = [
+		{ skill: 'js', name: 'JavaScript' },
+		{ skill: 'nodejs', name: 'Node.js' },
+		{ skill: 'electron', name: 'Electron' },
+		{ skill: 'npm', name: 'npm' }
+	];
+
+	const keeperTech = [
+		{ skill: 'react', name: 'React' },
+		{ skill: 'electron', name: 'Electron' },
+		{ skill: 'ts', name: 'TypeScript' }
+	];
+
+	const renvintoryTech = [
+		{ skill: 'svelte', name: 'SvelteKit' },
+		{ skill: 'tailwind', name: 'Tailwind CSS' },
+		{ skill: 'ts', name: 'TypeScript' },
+		{ skill: 'convex', name: 'Convex' },
+		{ skill: 'netlify', name: 'Netlify' }
+	];
 </script>
 
 <main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-12 lg:px-32">
@@ -395,6 +433,11 @@
 					Library that simplifies integration of WorkOS AuthKit and Convex database in SvelteKit
 					projects.
 				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each workosConvexSvelitekitTech as tech}
+						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+					{/each}
+				</div>
 			</div>
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h4 class="text-lg font-bold text-midnight-400">
@@ -404,6 +447,11 @@
 					Package to generate an API that facilitates communication between the main process and
 					render process in Electron apps.
 				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each electronIpcApiTech as tech}
+						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+					{/each}
+				</div>
 			</div>
 		</div>
 
@@ -419,6 +467,11 @@
 					Microservice for generating an image that visually showcases skill level in a specific
 					technology.
 				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each skillProgressTech as tech}
+						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+					{/each}
+				</div>
 			</div>
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h4 class="text-lg font-bold text-midnight-400">
@@ -427,6 +480,11 @@
 				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
 					Image culling app for photographers.
 				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each keeperTech as tech}
+						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+					{/each}
+				</div>
 			</div>
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h4 class="text-lg font-bold text-midnight-400">
@@ -436,6 +494,11 @@
 					Inventory tracking app for bartenders at KC Renaissance Festival. Track open/close
 					inventory, and EOD reports.
 				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each renvintoryTech as tech}
+						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+					{/each}
+				</div>
 			</div>
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h4 class="text-lg font-bold text-midnight-400">

@@ -9,6 +9,7 @@ import type { Project } from '$lib/components/ProjectCard.types';
  * DreamCaptureCo
  * skill-progress
  * workos-convex-sveltekit
+ * electron-ipc-api
  * keeper
  * This developer portfolio
  */
@@ -114,6 +115,26 @@ export const projects: Project[] = [
 			{
 				type: 'npm',
 				url: 'https://www.npmjs.com/package/workos-convex-sveltekit',
+				label: 'NPM'
+			}
+		]
+	},
+	{
+		name: 'electron-ipc-api',
+		description:
+			'Package to generate an API that facilitates communication between the main process and render process in Electron apps.',
+		url: 'https://github.com/slimnate/eipc-api',
+		image: '/img/electron-ipc-api-1280x720.png',
+		skills: ['js', 'nodejs', 'electron', 'npm'],
+		links: [
+			{
+				type: 'github',
+				url: 'https://github.com/slimnate/eipc-api',
+				label: 'Source Code'
+			},
+			{
+				type: 'npm',
+				url: 'https://www.npmjs.com/package/eipc-api',
 				label: 'NPM'
 			}
 		]
