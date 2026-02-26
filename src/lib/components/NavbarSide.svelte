@@ -88,7 +88,7 @@
 		</div>
 		<div>
 			<a
-				href="https://x.com/nathanhoytdev"
+				href="https://x.com/slimnatedev"
 				target="_blank"
 				onmouseenter={() => hoverIn(xEl)}
 				onmouseleave={() => hoverOut(xEl)}

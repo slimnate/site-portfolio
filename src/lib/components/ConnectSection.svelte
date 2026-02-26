@@ -16,7 +16,7 @@
 		},
 		{
 			name: 'X',
-			href: 'https://x.com/nathanhoytdev',
+			href: 'https://x.com/slimnatedev',
 			label: '@nathanhoytdev',
 			icon: 'x'
 		},
