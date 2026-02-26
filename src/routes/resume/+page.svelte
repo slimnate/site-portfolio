@@ -2,7 +2,7 @@
 	import BounceLink from '$lib/components/BounceLink.svelte';
 	import SkillIcon from '$lib/components/SkillIcon.svelte';
 
-	const spotliteTech = [
+	const job_spotliteTech = [
 		{ skill: 'svelte', name: 'SvelteKit' },
 		{ skill: 'tailwind', name: 'Tailwind CSS' },
 		{ skill: 'convex', name: 'Convex' },
@@ -14,7 +14,7 @@
 		{ skill: 'git', name: 'Git' }
 	];
 
-	const cernerTech = [
+	const job_cernerTech = [
 		{ skill: 'cs', name: 'C#' },
 		{ skill: 'dotnet', name: '.NET Framework' },
 		{ skill: 'wpf', name: 'WPF' },
@@ -31,56 +31,72 @@
 		{ skill: 'git', name: 'Git' }
 	];
 
-	const powerschoolTech = [
+	const job_powerschoolTech = [
 		{ skill: 'chrome', name: 'Google Chrome' },
 		{ skill: 'salesforce', name: 'SalesForce' },
 		{ skill: 'jira', name: 'JIRA' }
 	];
 
-	const languageSkills = [
+	const skills_languages = [
 		{ skill: 'js', name: 'JavaScript' },
 		{ skill: 'ts', name: 'TypeScript' },
 		{ skill: 'cs', name: 'C#' },
-		{ skill: 'cpp', name: 'C++' },
 		{ skill: 'html', name: 'HTML' },
 		{ skill: 'css', name: 'CSS' },
-		{ skill: 'mysql', name: 'SQL' },
-		{ skill: 'ruby', name: 'Ruby' }
+		{ skill: 'cpp', name: 'C++' },
+		{ skill: 'java', name: 'Java' },
+		{ skill: 'ruby', name: 'Ruby' },
+		{ skill: 'php', name: 'PHP' },
+		{ skill: 'py', name: 'Python' }
 	];
 
-	const frameworkSkills = [
+	const skills_frameworks = [
 		{ skill: 'svelte', name: 'SvelteKit' },
 		{ skill: 'react', name: 'React' },
 		{ skill: 'electron', name: 'Electron' },
 		{ skill: 'nodejs', name: 'Node.js' },
 		{ skill: 'wpf', name: 'WPF' },
+		{ skill: 'rails', name: 'Ruby on Rails' },
 		{ skill: 'jekyll', name: 'Jekyll' }
 	];
 
-	const databaseSkills = [
+	const skills_database = [
 		{ skill: 'convex', name: 'Convex' },
+		{ skill: 'mongodb', name: 'MongoDB' },
 		{ skill: 'mysql', name: 'MySQL' },
 		{ skill: 'postgres', name: 'PostgreSQL' },
-		{ skill: 'mongodb', name: 'MongoDB' }
+		{ skill: 'sqlite', name: 'SQLite' }
 	];
 
-	const cloudSkills = [
+	const skills_cloud = [
 		{ skill: 'netlify', name: 'Netlify' },
 		{ skill: 'railway', name: 'Railway' },
 		{ skill: 'redhat', name: 'RedHat/Fedora' },
 		{ skill: 'gcp', name: 'GCP' }
 	];
 
-	const toolSkills = [
+	const skills_tools = [
 		{ skill: 'git', name: 'Git' },
 		{ skill: 'vscode', name: 'VS Code' },
 		{ skill: 'cursor', name: 'Cursor' },
 		{ skill: 'visualstudio', name: 'Visual Studio' },
 		{ skill: 'npm', name: 'npm' },
-		{ skill: 'bash', name: 'CLI' }
+		{ skill: 'bash', name: 'CLI' },
+		{ skill: 'github', name: 'GitHub' },
+		{ skill: 'bitbucket', name: 'Bitbucket' },
+		{ skill: 'neovim', name: 'Neovim' },
+		{ skill: 'postman', name: 'Postman' }
 	];
 
-	const workosConvexSvelitekitTech = [
+	const skills_systems = [
+		{ skill: 'windows', name: 'Windows' },
+		{ skill: 'arch', name: 'Arch Linux' },
+		{ skill: 'linux', name: 'Linux' },
+		{ skill: 'powershell', name: 'PowerShell' },
+		{ skill: 'bash', name: 'Bash' }
+	];
+
+	const project_workosConvexSvelitekitTech = [
 		{ skill: 'workos', name: 'WorkOS' },
 		{ skill: 'convex', name: 'Convex' },
 		{ skill: 'svelte', name: 'SvelteKit' },
@@ -88,7 +104,7 @@
 		{ skill: 'nodejs', name: 'Node.js' }
 	];
 
-	const skillProgressTech = [
+	const project_skillProgressTech = [
 		{ skill: 'ts', name: 'TypeScript' },
 		{ skill: 'express', name: 'Express' },
 		{ skill: 'netlify', name: 'Netlify' },
@@ -97,25 +113,44 @@
 		{ skill: 'svg', name: 'SVG' }
 	];
 
-	const electronIpcApiTech = [
+	const project_electronIpcApiTech = [
 		{ skill: 'js', name: 'JavaScript' },
 		{ skill: 'nodejs', name: 'Node.js' },
 		{ skill: 'electron', name: 'Electron' },
 		{ skill: 'npm', name: 'npm' }
 	];
 
-	const keeperTech = [
+	const project_keeperTech = [
 		{ skill: 'react', name: 'React' },
 		{ skill: 'electron', name: 'Electron' },
 		{ skill: 'ts', name: 'TypeScript' }
 	];
 
-	const renvintoryTech = [
+	const project_renvintoryTech = [
 		{ skill: 'svelte', name: 'SvelteKit' },
 		{ skill: 'tailwind', name: 'Tailwind CSS' },
 		{ skill: 'ts', name: 'TypeScript' },
 		{ skill: 'convex', name: 'Convex' },
 		{ skill: 'netlify', name: 'Netlify' }
+	];
+
+	const project_laserBeamTech = [
+		{ skill: 'cs', name: 'C#' },
+		{ skill: 'nodejs', name: 'Node.js' },
+		{ skill: 'mongodb', name: 'MongoDB' }
+	];
+
+	const project_supportToolTech = [
+		{ skill: 'chrome', name: 'Google Chrome' },
+		{ skill: 'js', name: 'JavaScript' },
+		{ skill: 'html', name: 'HTML' },
+		{ skill: 'css', name: 'CSS' }
+	];
+
+	const project_reptileHumidityTech = [
+		{ skill: 'cpp', name: 'C++' },
+		{ skill: 'dart', name: 'Dart' },
+		{ skill: 'flutter', name: 'Flutter' }
 	];
 </script>
 
@@ -226,7 +261,7 @@
 			<div class="mt-6">
 				<h4 class="text-lg font-bold text-midnight-400">Technologies</h4>
 				<div class="mt-2 flex flex-wrap gap-3">
-					{#each spotliteTech as tech}
+					{#each job_spotliteTech as tech}
 						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 					{/each}
 				</div>
@@ -273,7 +308,7 @@
 			<div class="mt-6">
 				<h4 class="text-lg font-bold text-midnight-400">Technologies</h4>
 				<div class="mt-2 flex flex-wrap gap-3">
-					{#each cernerTech as tech}
+					{#each job_cernerTech as tech}
 						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 					{/each}
 				</div>
@@ -319,7 +354,7 @@
 			<div class="mt-6">
 				<h4 class="text-lg font-bold text-midnight-400">Technologies</h4>
 				<div class="mt-2 flex flex-wrap gap-3">
-					{#each powerschoolTech as tech}
+					{#each job_powerschoolTech as tech}
 						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 					{/each}
 				</div>
@@ -353,7 +388,7 @@
 				<div>
 					<h4 class="text-lg font-bold text-midnight-400">Languages</h4>
 					<div class="mt-2 flex flex-wrap gap-3">
-						{#each languageSkills as tech}
+						{#each skills_languages as tech}
 							<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 						{/each}
 					</div>
@@ -361,7 +396,7 @@
 				<div>
 					<h4 class="text-lg font-bold text-midnight-400">Frameworks</h4>
 					<div class="mt-2 flex flex-wrap gap-3">
-						{#each frameworkSkills as tech}
+						{#each skills_frameworks as tech}
 							<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 						{/each}
 					</div>
@@ -369,7 +404,7 @@
 				<div>
 					<h4 class="text-lg font-bold text-midnight-400">Databases</h4>
 					<div class="mt-2 flex flex-wrap gap-3">
-						{#each databaseSkills as tech}
+						{#each skills_database as tech}
 							<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 						{/each}
 					</div>
@@ -377,7 +412,7 @@
 				<div>
 					<h4 class="text-lg font-bold text-midnight-400">Cloud & Hosting</h4>
 					<div class="mt-2 flex flex-wrap gap-3">
-						{#each cloudSkills as tech}
+						{#each skills_cloud as tech}
 							<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 						{/each}
 					</div>
@@ -385,7 +420,15 @@
 				<div>
 					<h4 class="text-lg font-bold text-midnight-400">Tools</h4>
 					<div class="mt-2 flex flex-wrap gap-3">
-						{#each toolSkills as tech}
+						{#each skills_tools as tech}
+							<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+						{/each}
+					</div>
+				</div>
+				<div>
+					<h4 class="text-lg font-bold text-midnight-400">Systems</h4>
+					<div class="mt-2 flex flex-wrap gap-3">
+						{#each skills_systems as tech}
 							<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 						{/each}
 					</div>
@@ -409,6 +452,11 @@
 				<p class="mt-2 text-sm/6 text-platinum drop-shadow-md drop-shadow-midnight-900">
 					Project at Cerner that collected application logs to a centralized database for analysis.
 				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each project_laserBeamTech as tech}
+						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+					{/each}
+				</div>
 			</div>
 			<div class="rounded-3xl border-2 border-platinum/20 bg-midnight-500/15 p-6 sm:p-8">
 				<h4 class="text-lg font-bold text-midnight-400">Support Tool</h4>
@@ -416,6 +464,11 @@
 					Google Chrome extension to vastly improve customer support efficiency for support team at
 					PowerSchool.
 				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each project_supportToolTech as tech}
+						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+					{/each}
+				</div>
 			</div>
 		</div>
 
@@ -434,7 +487,7 @@
 					projects.
 				</p>
 				<div class="mt-4 flex flex-wrap gap-3">
-					{#each workosConvexSvelitekitTech as tech}
+					{#each project_workosConvexSvelitekitTech as tech}
 						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 					{/each}
 				</div>
@@ -448,7 +501,7 @@
 					render process in Electron apps.
 				</p>
 				<div class="mt-4 flex flex-wrap gap-3">
-					{#each electronIpcApiTech as tech}
+					{#each project_electronIpcApiTech as tech}
 						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 					{/each}
 				</div>
@@ -468,7 +521,7 @@
 					technology.
 				</p>
 				<div class="mt-4 flex flex-wrap gap-3">
-					{#each skillProgressTech as tech}
+					{#each project_skillProgressTech as tech}
 						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 					{/each}
 				</div>
@@ -481,7 +534,7 @@
 					Image culling app for photographers.
 				</p>
 				<div class="mt-4 flex flex-wrap gap-3">
-					{#each keeperTech as tech}
+					{#each project_keeperTech as tech}
 						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 					{/each}
 				</div>
@@ -495,7 +548,7 @@
 					inventory, and EOD reports.
 				</p>
 				<div class="mt-4 flex flex-wrap gap-3">
-					{#each renvintoryTech as tech}
+					{#each project_renvintoryTech as tech}
 						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
 					{/each}
 				</div>
@@ -510,6 +563,11 @@
 					Fully custom PCB, embedded software, and mobile app to monitor and control humidity and
 					lighting schedule in reptile enclosures.
 				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each project_reptileHumidityTech as tech}
+						<SkillIcon skill={tech.skill} name={tech.name} size={32} />
+					{/each}
+				</div>
 			</div>
 		</div>
 

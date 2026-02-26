@@ -22,7 +22,12 @@ const frameworkSkills: SkillIconProps[] = [
 	{ skill: 'rails', level: 3, name: 'Ruby on Rails' },
 	{ skill: 'flutter', level: 2, name: 'Flutter' },
 	{ skill: 'tailwind', level: 5, name: 'Tailwind CSS' },
-	{ skill: 'jquery', level: 4, name: 'jQuery' }
+	{ skill: 'jquery', level: 4, name: 'jQuery' },
+	{ skill: 'dotnet', level: 3, name: '.NET' },
+	{ skill: 'wpf', level: 3, name: 'WPF' },
+	{ skill: 'bootstrap', level: 3, name: 'Bootstrap' },
+	{ skill: 'socketio', level: 3, name: 'Socket.IO' },
+	{ skill: 'jekyll', level: 2, name: 'Jekyll' }
 ];
 
 const backendSkills: SkillIconProps[] = [
@@ -61,7 +66,10 @@ const toolsSkills: SkillIconProps[] = [
 	{ skill: 'cursor', level: 5, name: 'Cursor' },
 	{ skill: 'visualstudio', level: 5, name: 'Visual Studio' },
 	{ skill: 'postman', level: 4, name: 'Postman' },
-	{ skill: 'figma', level: 2, name: 'Figma' }
+	{ skill: 'figma', level: 2, name: 'Figma' },
+	{ skill: 'jira', level: 2, name: 'JIRA' },
+	{ skill: 'chrome', level: 3, name: 'Google Chrome' },
+	{ skill: 'salesforce', level: 2, name: 'SalesForce' }
 ];
 
 const systemsSkills: SkillIconProps[] = [
@@ -69,7 +77,8 @@ const systemsSkills: SkillIconProps[] = [
 	{ skill: 'arch', level: 3, name: 'Arch Linux' },
 	{ skill: 'linux', level: 3, name: 'Linux' },
 	{ skill: 'powershell', level: 3, name: 'PowerShell' },
-	{ skill: 'bash', level: 3, name: 'Bash' }
+	{ skill: 'bash', level: 3, name: 'Bash' },
+	{ skill: 'redhat', level: 2, name: 'RedHat/Fedora' }
 ];
 
 export {
