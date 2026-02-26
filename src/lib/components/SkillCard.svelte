@@ -24,7 +24,7 @@
 	</div>
 
 	<div
-		class="z-20 flex flex-wrap items-center justify-center gap-2 transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-110 md:max-w-xl"
+		class="z-20 mx-auto flex max-w-2xl flex-wrap items-center justify-center gap-2 transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-110"
 		style="padding-top: {titleHeight + 4}px;"
 	>
 		{#each skills as skill}

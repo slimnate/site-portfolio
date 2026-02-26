@@ -154,7 +154,7 @@
 	];
 </script>
 
-<main class="z-1 mx-auto flex h-full max-w-5xl flex-col justify-center px-12 lg:px-32">
+<main class="z-1 mx-auto flex h-full max-w-7xl flex-col justify-center px-12 lg:px-32">
 	<div class="pr-8">
 		<!-- Header -->
 		<div class="flex flex-col">
