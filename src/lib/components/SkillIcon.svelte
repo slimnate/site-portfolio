@@ -19,7 +19,7 @@
 	}
 
 	const progressUrl = $derived.by(() => {
-		const url = new URL('https://skill-progress-production.up.railway.app/progress');
+		const url = new URL('https://skillprogress.dev/progress');
 
 		url.searchParams.set('skill', skill);
 
